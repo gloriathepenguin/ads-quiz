@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>广告投放知识测验</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Noto+Serif+SC:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ════════════════════════════════════════
+   样式 · 编辑杂志风
+   ════════════════════════════════════════ */
+:root {
+  --paper: #f4f1ea;
+  --paper-dark: #ebe6da;
+  --ink: #1a1814;
+  --ink-soft: #4a4640;
+  --ink-muted: #8a847a;
+  --accent: #c8412a;
+  --accent-soft: #e8b9af;
+  --success: #4a6b3e;
+  --success-soft: #c8d4bf;
+  --error: #a8321e;
+  --error-soft: #f0d4cc;
+  --warning: #b8862a;
+  --rule: #1a1814;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Noto Serif SC', 'Fraunces', Georgia, serif;
+  font-weight: 400;
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.4;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(0,0,0,0.015) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(0,0,0,0.02) 0%, transparent 50%),
+    repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,0.005) 2px, rgba(0,0,0,0.005) 4px);
+}
+a { color: inherit; text-decoration: none; cursor: pointer; }
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 48px 32px 100px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Masthead */
+.masthead {
+  border-top: 6px double var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 20px 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.masthead-left, .masthead-right {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.masthead-right a { transition: color 0.2s; }
+.masthead-right a:hover { color: var(--accent); }
+.masthead-right .divider { margin: 0 8px; color: var(--ink-muted); }
+
+/* Title Block */
+.title-block {
+  padding: 36px 0 28px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 36px;
+}
+.kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+h1 {
+  font-family: 'Fraunces', 'Noto Serif SC', serif;
+  font-weight: 900;
+  font-size: clamp(44px, 7vw, 84px);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 20px;
+  font-variation-settings: 'opsz' 144;
+}
+h1 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--accent);
+}
+.dek {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 600px;
+}
+.meta-row {
+  display: flex;
+  gap: 24px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.meta-row strong { color: var(--ink); font-weight: 500; }
+
+/* Section Header */
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin: 56px 0 28px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.section-num {
+  font-family: 'Fraunces', serif;
+  font-size: 48px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+.section-title {
+  font-family: 'Fraunces', 'Noto Serif SC', serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  flex: 1;
+}
+.section-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* Colophon */
+.colophon {
+  margin-top: 56px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(26,24,20,0.2);
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* Buttons */
+.btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 14px 24px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-primary { background: var(--ink); color: var(--paper); }
+.btn-primary:hover { background: var(--accent); }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--paper); }
+
+/* Module Cards */
+.module-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+.module-card {
+  padding: 28px 28px 24px;
+  background: rgba(255,255,255,0.5);
+  border: 1px solid rgba(26,24,20,0.15);
+  cursor: pointer;
+  transition: all 0.25s;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-family: inherit;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+}
+.module-card::after {
+  content: '→';
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  color: var(--ink-muted);
+  transition: all 0.25s;
+}
+.module-card:hover {
+  background: #fff;
+  border-color: var(--ink);
+  transform: translateY(-2px);
+}
+.module-card:hover::after {
+  color: var(--accent);
+  transform: translateX(4px);
+}
+.module-icon {
+  font-family: 'Fraunces', serif;
+  font-size: 38px;
+  font-weight: 300;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 14px;
+  font-style: italic;
+}
+.module-title {
+  font-family: 'Fraunces', 'Noto Serif SC', serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.module-subtitle {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin-bottom: 16px;
+  flex: 1;
+}
+.module-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 14px;
+  border-top: 1px solid rgba(26,24,20,0.1);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.module-footer strong { color: var(--ink); font-weight: 500; }
+.module-card.all-in-one {
+  grid-column: 1 / -1;
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.module-card.all-in-one::after { color: var(--accent-soft); }
+.module-card.all-in-one .module-icon { color: var(--accent-soft); }
+.module-card.all-in-one .module-subtitle { color: rgba(244,241,234,0.75); }
+.module-card.all-in-one .module-footer {
+  border-top-color: rgba(244,241,234,0.2);
+  color: rgba(244,241,234,0.5);
+}
+.module-card.all-in-one .module-footer strong { color: var(--paper); }
+.module-card.all-in-one:hover { background: var(--ink); transform: translateY(-2px); }
+.module-card.mistakes {
+  background: var(--paper-dark);
+  border-color: rgba(168,50,30,0.3);
+}
+.module-card.mistakes .module-icon { color: var(--error); }
+.module-card.mistakes.empty { opacity: 0.55; cursor: default; }
+.module-card.mistakes.empty:hover {
+  background: var(--paper-dark);
+  transform: none;
+  border-color: rgba(168,50,30,0.3);
+}
+.module-card.mistakes.empty::after { display: none; }
+
+/* Score Panel */
+.score-panel {
+  margin-bottom: 36px;
+  padding: 20px 24px;
+  background: var(--paper-dark);
+  border-left: 3px solid var(--accent);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  align-items: end;
+}
+.score-progress { grid-column: 1 / -1; margin-top: 12px; }
+.score-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 4px;
+}
+.score-value {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.score-value.correct { color: var(--success); }
+.score-value.wrong { color: var(--error); }
+.score-value em {
+  font-style: italic;
+  font-weight: 300;
+  font-size: 16px;
+  color: var(--ink-muted);
+}
+.progress-bar {
+  height: 4px;
+  background: rgba(26,24,20,0.1);
+  position: relative;
+  overflow: hidden;
+}
+.progress-fill {
+  position: absolute;
+  inset: 0 100% 0 0;
+  background: var(--accent);
+  transition: right 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.progress-label-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 6px;
+}
+
+/* Question */
+.question {
+  margin-bottom: 28px;
+  padding: 26px 30px;
+  background: rgba(255,255,255,0.4);
+  border: 1px solid rgba(26,24,20,0.12);
+  transition: background 0.3s ease;
+}
+.question.answered { background: rgba(255,255,255,0.65); }
+.q-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.q-num {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  padding-top: 4px;
+}
+.q-text {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 16.5px;
+  line-height: 1.55;
+  color: var(--ink);
+  font-weight: 500;
+}
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 13px 16px;
+  background: var(--paper);
+  border: 1px solid rgba(26,24,20,0.15);
+  cursor: pointer;
+  transition: all 0.18s;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  text-align: left;
+  font-family: inherit;
+  width: 100%;
+}
+.option:hover:not(:disabled) {
+  background: #fff;
+  border-color: var(--ink-soft);
+  color: var(--ink);
+}
+.option:disabled { cursor: not-allowed; }
+.opt-letter {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--accent);
+  flex-shrink: 0;
+  width: 20px;
+  font-size: 16px;
+}
+.opt-text { flex: 1; }
+.option.correct {
+  background: var(--success-soft);
+  border-color: var(--success);
+  color: var(--ink);
+}
+.option.correct .opt-letter { color: var(--success); }
+.option.wrong {
+  background: var(--error-soft);
+  border-color: var(--error);
+  color: var(--ink);
+}
+.option.wrong .opt-letter { color: var(--error); }
+.option.faded { opacity: 0.45; }
+
+/* Explanation */
+.explanation {
+  margin-top: 16px;
+  padding: 18px 20px;
+  background: var(--paper-dark);
+  border-left: 3px solid var(--success);
+  display: none;
+  animation: revealIn 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.explanation.show { display: block; }
+.explanation.wrong-style { border-left-color: var(--error); }
+@keyframes revealIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.exp-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--success);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.explanation.wrong-style .exp-label { color: var(--error); }
+.exp-content {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+.exp-content strong { color: var(--ink); font-weight: 600; }
+.exp-content em { font-style: italic; color: var(--accent); }
+
+/* Final Card */
+.final-card {
+  margin-top: 56px;
+  padding: 40px 36px;
+  background: var(--ink);
+  color: var(--paper);
+  position: relative;
+  display: none;
+}
+.final-card.show { display: block; }
+.final-card::before {
+  content: '※';
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  font-size: 24px;
+  color: var(--accent);
+}
+.final-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+  margin-bottom: 14px;
+}
+.final-title {
+  font-family: 'Fraunces', 'Noto Serif SC', serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+.final-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--accent-soft);
+}
+.final-score {
+  font-family: 'Fraunces', serif;
+  font-size: 72px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin: 24px 0 8px;
+}
+.final-score em {
+  font-style: italic;
+  color: var(--accent-soft);
+  font-size: 36px;
+  font-weight: 300;
+}
+.final-grade {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+  margin-bottom: 20px;
+}
+.final-text {
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(244,241,234,0.85);
+  margin-bottom: 24px;
+}
+.final-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.final-actions .btn-primary { background: var(--accent-soft); color: var(--ink); }
+.final-actions .btn-primary:hover { background: var(--paper); }
+.final-actions .btn-ghost { color: var(--accent-soft); border-color: var(--accent-soft); }
+.final-actions .btn-ghost:hover { background: var(--accent-soft); color: var(--ink); }
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--ink-muted);
+}
+.empty-state .icon {
+  font-family: 'Fraunces', serif;
+  font-size: 64px;
+  font-style: italic;
+  color: var(--accent-soft);
+  margin-bottom: 16px;
+}
+.empty-state .title {
+  font-family: 'Fraunces', 'Noto Serif SC', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.empty-state .text {
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 440px;
+  margin: 0 auto 24px;
+}
+
+/* Mistakes 页专用 */
+.mistakes-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  padding: 18px 22px;
+  background: var(--paper-dark);
+  border-left: 3px solid var(--error);
+  flex-wrap: wrap;
+}
+.mistakes-toolbar-info {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.mistakes-toolbar-info strong {
+  color: var(--error);
+  font-size: 14px;
+  font-weight: 600;
+}
+.mistakes-toolbar-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.toolbar-btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 10px 16px;
+  cursor: pointer;
+  border: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  transition: all 0.2s;
+}
+.toolbar-btn:hover { background: var(--ink); color: var(--paper); }
+.toolbar-btn.primary { background: var(--ink); color: var(--paper); }
+.toolbar-btn.primary:hover { background: var(--accent); border-color: var(--accent); }
+.toolbar-btn.danger { border-color: var(--error); color: var(--error); }
+.toolbar-btn.danger:hover { background: var(--error); color: var(--paper); }
+.mistake-preview {
+  margin-bottom: 16px;
+  padding: 20px 24px;
+  background: rgba(255,255,255,0.5);
+  border: 1px solid rgba(168,50,30,0.25);
+  border-left: 3px solid var(--error);
+  transition: all 0.2s;
+}
+.mistake-preview:hover { background: #fff; }
+.mistake-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.mistake-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.mistake-tag .module-tag { color: var(--accent); font-weight: 500; }
+.mistake-remove {
+  background: transparent;
+  border: none;
+  color: var(--ink-muted);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: all 0.2s;
+}
+.mistake-remove:hover { color: var(--error); }
+.mistake-q {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .container { padding: 28px 18px 80px; }
+  .question { padding: 20px 18px; }
+  .option { padding: 11px 13px; font-size: 14px; gap: 10px; }
+  .opt-letter { width: 18px; font-size: 15px; }
+  .meta-row { gap: 14px; font-size: 10px; }
+  .score-panel { grid-template-columns: 1fr 1fr; gap: 14px; padding: 16px 18px; }
+  .score-value { font-size: 24px; }
+  .final-score { font-size: 56px; }
+  .section-num { font-size: 38px; }
+  .section-title { font-size: 18px; }
+  .q-text { font-size: 15.5px; }
+  .module-grid { grid-template-columns: 1fr; gap: 14px; }
+  .module-card { padding: 22px 22px 20px; }
+  .module-card::after { top: 20px; right: 20px; font-size: 20px; }
+  .module-title { font-size: 19px; }
+  .final-actions { flex-direction: column; }
+  .final-actions .btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<div id="app"></div>
+
+<script>
+/* ════════════════════════════════════════
+   题库 · 未来扩充就改这里
+   ════════════════════════════════════════
+   题目结构：
+     id        — 全局唯一 ID（错题本去重的依据）
+     q         — 题干
+     options   — 选项数组，每项 { text, correct? }
+                 每题应该有且仅有一个 correct: true
+     explain   — 解析（支持 <strong> <em> <br>）
+     tags      — 标签数组（可选）
+   ──────────────────────────────────────── */
+
+const MODULES = [
+  {
+    id: 'overview',
+    title: '广告类型大局观',
+    subtitle: '建立 Google Ads 全产品的整体认知，理解每种广告类型的定位、人群和适用场景',
+    icon: '◐',
+    sections: [
+      {
+        title: '基础认知',
+        questions: [
+          {
+            id: 'overview-001',
+            q: 'Google Ads 的所有广告类型，可以从用户意图角度划分为两大阵营。下面哪个组合是"主动需求型"（用户主动搜索，你被搜到）？',
+            options: [
+              { text: '搜索广告 + 购物广告', correct: true },
+              { text: '展示广告 + YouTube 广告' },
+              { text: 'Demand Gen + 应用广告' },
+              { text: 'YouTube 广告 + 购物广告' }
+            ],
+            explain: '<strong>主动需求型</strong>：用户已经知道自己要什么 → 搜索广告、购物广告、部分 PMax。<br><strong>被动需求型</strong>：用户没在找你 → 展示、YouTube、Demand Gen、应用广告。<br><br>这个划分决定了素材逻辑、出价策略和衡量周期的根本差异。',
+            tags: ['基础', '广告类型']
+          },
+          {
+            id: 'overview-002',
+            q: '做独立站电商，预算有限，应该优先投哪种广告类型？',
+            options: [
+              { text: 'YouTube 广告，做品牌建设' },
+              { text: '购物广告（Shopping Ads）', correct: true },
+              { text: 'Demand Gen，挖掘潜在客户' },
+              { text: '展示广告，扩大触达' }
+            ],
+            explain: '<strong>购物广告是电商必投</strong>——用户搜索具体商品时直接展示图片+价格+商家名，<em>意图最精准、转化率最高</em>。它通过 Google Merchant Center 的产品 Feed 驱动，不靠关键词。<br><br>预算少的时候只做意向层和转化层（搜索 + 购物 + 再营销），预算大了再往上游做 Demand Gen 和 YouTube 拉新。',
+            tags: ['电商', '购物广告']
+          },
+          {
+            id: 'overview-003',
+            q: 'B2B 外贸企业为什么在 2024 年开始大量投放 Demand Gen 广告？',
+            options: [
+              { text: 'Demand Gen 比搜索广告便宜' },
+              { text: '搜索广告流量天花板低，B2B 销售周期长，Demand Gen 能挖掘潜在客户、扩大触达', correct: true },
+              { text: 'Demand Gen 是 Google 唯一支持 B2B 的广告类型' },
+              { text: 'Demand Gen 不需要素材，最省事' }
+            ],
+            explain: 'B2B 关键词搜索量有限，<em>搜索广告很快就遇到流量瓶颈</em>。Demand Gen 的版位覆盖 YouTube Shorts/Feeds/In-stream、Discover 和 Gmail，能<strong>主动挖掘潜在客户</strong>，配合较长的 B2B 销售周期。<br><br>另外它是<em>唯一支持 Similar Audience（类似受众）定位的 Google 广告</em>，可以基于已有客户数据找相似人群——这个能力对 B2B 拉新非常关键。',
+            tags: ['B2B', 'Demand Gen']
+          },
+          {
+            id: 'overview-004',
+            q: '效果最大化广告系列（Performance Max / PMax）对新手账户来说，下面哪个说法最准确？',
+            options: [
+              { text: 'PMax 是 AI 黑盒，新账户/小预算账户经常跑不好，建议先用搜索+购物广告积累数据', correct: true },
+              { text: 'PMax 是新手最佳选择，因为 AI 自动优化' },
+              { text: 'PMax 适合所有场景，应该首选' },
+              { text: 'PMax 只能投展示位置，不适合电商' }
+            ],
+            explain: 'PMax 覆盖 Google 所有渠道（搜索/展示/YouTube/Gmail/Discover/地图），<strong>但黑盒程度极高</strong>——看不到关键词、不知道流量来自哪、几乎没法人工干预。<br><br>它依赖<em>充足的转化数据</em>来训练 AI，新账户/小预算账户没有数据可学，效果通常很差。<strong>正确做法：先用搜索 + 购物广告打底，等账户有稳定转化数据（建议 30+ 月度转化）再上 PMax。</strong>',
+            tags: ['PMax', '新手']
+          },
+          {
+            id: 'overview-005',
+            q: '展示广告（Display Ads）最有价值的玩法是什么？',
+            options: [
+              { text: '纯拉新——直接对陌生人投放转化广告' },
+              { text: '再营销——把搜索/购物广告吸引来但没下单的用户重新触达', correct: true },
+              { text: '替代搜索广告，节省成本' },
+              { text: '投放在垃圾网站上获取廉价流量' }
+            ],
+            explain: '展示广告直接拉新转化率很低，<em>容易被广告拦截，品牌安全风险也高</em>。但它在<strong>再营销（Retargeting）</strong>场景下是神器：<br><br>用户在搜索/购物广告点了链接但没下单 → 用展示广告在他后续浏览其他网站时反复触达 → 临门一脚促成转化。这是它在完整营销漏斗中的核心角色。',
+            tags: ['展示广告', '再营销']
+          },
+          {
+            id: 'overview-006',
+            q: '关于不同广告类型的"学习曲线时长"（多久能初判效果），下面哪个对应关系是错的？',
+            options: [
+              { text: '搜索广告：1–2 周' },
+              { text: '购物广告：2–3 周' },
+              { text: 'Demand Gen：2 周', correct: true },
+              { text: 'PMax：4–6 周' }
+            ],
+            explain: '<strong>Demand Gen 需要 8 周才是完整周期</strong>——这是它最容易被骂"没效果"的原因，很多人 2 周就放弃了。<br><br>记住各类型的学习周期：搜索 1–2 周、购物 2–3 周、PMax 4–6 周、<strong>Demand Gen 8 周</strong>、YouTube 6–8 周。<em>不到周期就改预算/改设置 = 浪费学习数据。</em>',
+            tags: ['学习周期']
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'google',
+    title: 'Google Ads 实操',
+    subtitle: '搜索广告的账户设置、关键词、否定词、搜索字词报告等核心操作技能',
+    icon: 'G',
+    sections: [
+      {
+        title: '基础操作',
+        questions: [
+          {
+            id: 'google-001',
+            q: '新手注册 Google Ads 账户后，应该立刻切换到哪个模式？',
+            options: [
+              { text: '智能广告系列（Smart Campaign）' },
+              { text: '专家模式（Expert Mode）', correct: true },
+              { text: '自动出价模式' },
+              { text: '新手引导模式' }
+            ],
+            explain: '默认的<strong>智能广告系列</strong>看起来友好，但<em>控制权很少</em>，学不到关键字、出价、否定词等核心技能。<strong>专家模式</strong>才能完整接触搜索广告的全部控制项。',
+            tags: ['基础', '账户设置']
+          },
+          {
+            id: 'google-002',
+            q: '创建搜索广告系列时，"搜索网络合作伙伴"和"展示网络"这两个勾选框，新手应该怎么处理？',
+            options: [
+              { text: '都勾上，扩大曝光面' },
+              { text: '只勾搜索网络合作伙伴' },
+              { text: '只勾展示网络' },
+              { text: '两个都不要勾选', correct: true }
+            ],
+            explain: '<strong>两个都不要勾</strong>。搜索网络合作伙伴流量小、质量差；展示网络会把搜索广告塞进几百万个联盟网站，<em>跟搜索意图脱节，烧钱快</em>。需要展示广告就单独建一个展示广告系列。',
+            tags: ['账户设置', '常见坑']
+          },
+          {
+            id: 'google-003',
+            q: '定位国家选了美国，但默认的地理位置设置会带来什么坑？',
+            options: [
+              { text: '广告只展示给美国用户，没有问题' },
+              { text: '巴西、印度等地的用户搜了跟美国相关的词也可能看到广告，浪费预算', correct: true },
+              { text: '只有美国 IP 的人能看到广告' },
+              { text: 'Google 会自动屏蔽非美国用户' }
+            ],
+            explain: '默认是"<em>所在地或感兴趣的地点</em>"——只要搜索内容跟美国相关，<strong>哪怕用户在巴西也会看到广告</strong>。正确做法是改成 <strong>"所在地"（Presence）</strong>，只对真实身处目标地区的用户展示。',
+            tags: ['地理定位', '常见坑']
+          },
+          {
+            id: 'google-004',
+            q: 'Google Ads 的三种关键词匹配类型中，哪一种覆盖最广、最容易烧钱？',
+            options: [
+              { text: '完全匹配（Exact Match）' },
+              { text: '词组匹配（Phrase Match）' },
+              { text: '广泛匹配（Broad Match）', correct: true },
+              { text: '否定匹配（Negative Match）' }
+            ],
+            explain: '<strong>广泛匹配</strong>覆盖最广，相关搜索都可能触发，<em>新手用了烧钱最快</em>。精准度排序：完全匹配 > 词组匹配 > 广泛匹配。新手建议从词组匹配和完全匹配起步。',
+            tags: ['关键词']
+          },
+          {
+            id: 'google-005',
+            q: '日预算设置为 $10，某一天 Google 最多可能花掉多少？',
+            options: [
+              { text: '严格不超过 $10' },
+              { text: '最多 $15' },
+              { text: '最多 $20（日预算 2 倍）', correct: true },
+              { text: '没有上限' }
+            ],
+            explain: '单日最多花到 <strong>日预算的 2 倍</strong>，即 $20。但<em>月度结算才是真实上限</em>——按 30.4 天算，月花费不会超过 $304。所以单日超支别慌，看月度即可。',
+            tags: ['预算']
+          }
+        ]
+      },
+      {
+        title: '关键词与否定词',
+        questions: [
+          {
+            id: 'google-006',
+            q: '如果你有 5 个广告系列都不想出现"免费"这个词，最聪明的做法是？',
+            options: [
+              { text: '在每个广告系列里分别添加"免费"为否定词' },
+              { text: '在账户层级添加"免费"为否定词，对所有系列强制生效' },
+              { text: '创建共享否定关键词列表，应用到 5 个系列', correct: true },
+              { text: '在每个广告组里都添加一遍' }
+            ],
+            explain: '<strong>共享否定关键词列表</strong>（工具和设置 → 共享库 → 否定关键字列表）是最佳方案。<em>一处修改，所有关联系列自动更新</em>。账户层级否定词也能用，但<strong>共享列表更灵活</strong>——可以选择性应用到某些系列，账户级是全账户强制生效，遇到品牌词系列需要保留"免费"时就麻烦了。',
+            tags: ['否定词']
+          },
+          {
+            id: 'google-007',
+            q: '你卖男士皮鞋和女士皮鞋，分了两个广告组。怎么用否定关键词避免它们互相抢流量？',
+            options: [
+              { text: '在账户层级把"男士"和"女士"都加为否定词' },
+              { text: '在男士广告组里把"女士、女款"等设为否定词，反过来也一样', correct: true },
+              { text: '把"皮鞋"加为否定词' },
+              { text: '用展示广告替代搜索广告' }
+            ],
+            explain: '在<strong>广告组层级</strong>加互斥的否定词——男士组否定"女士"，女士组否定"男士"。这样搜"women dress shoes"只触发女士组，搜"men leather shoes"只触发男士组，<em>避免两组互相抢流量、自己跟自己抬价</em>。',
+            tags: ['否定词', '广告组']
+          },
+          {
+            id: 'google-008',
+            q: '"关键词（Keywords）"和"搜索字词（Search Terms）"的关系是？',
+            options: [
+              { text: '完全相同，只是叫法不同' },
+              { text: '关键词是你设置的；搜索字词是用户实际输入的内容，两者经常对不上', correct: true },
+              { text: '搜索字词是你设置的；关键词是用户输入的' },
+              { text: '搜索字词只在购物广告里出现' }
+            ],
+            explain: '<strong>关键词</strong>是你设置的，告诉 Google "我希望谁搜什么的时候触发我的广告"。<strong>搜索字词</strong>是用户<em>实际输入</em>的内容。<br><br>两者经常对不上是因为<strong>匹配类型</strong>的存在——尤其是广泛匹配和词组匹配。比如你设了"running shoes"广泛匹配，可能触发"how to clean running shoes"——浪费钱的情况就藏在搜索字词报告里。',
+            tags: ['关键词']
+          },
+          {
+            id: 'google-009',
+            q: '看搜索字词报告时，对一条"有花费、没转化、但跟产品相关"的搜索词，应该怎么处理？',
+            options: [
+              { text: '立刻加为否定关键词' },
+              { text: '立刻加为新关键词' },
+              { text: '继续观察，等数据样本变大（50–100 次点击）再决策', correct: true },
+              { text: '立刻提高出价' }
+            ],
+            explain: '搜索字词报告的"三选一"决策：<br><strong>有花费、有转化</strong> → 加为新关键词（完全匹配单独投）<br><strong>有花费、没转化、不相关</strong> → 加为否定词<br><strong>有花费、没转化、但相关</strong> → 继续观察，<em>数据样本太小不能下结论</em>。<br><br>等到至少 50–100 次点击再判断。',
+            tags: ['搜索字词报告']
+          },
+          {
+            id: 'google-010',
+            q: '搜索字词报告会显示所有触发广告的真实搜索词吗？',
+            options: [
+              { text: '是的，完整显示 100%' },
+              { text: '不会，由于隐私政策只显示 70–85%，剩余归入"其他搜索字词"', correct: true },
+              { text: '只显示有转化的词' },
+              { text: '只显示完全匹配的词' }
+            ],
+            explain: 'Google 隐私政策会<em>隐藏搜索量过低的查询词</em>，报告通常只能看到实际触发流量的 <strong>70–85%</strong>。<br><br>这意味着：<strong>不可能通过否定词完全控制所有流量</strong>。所以必须配合谨慎的匹配类型选择和智能出价策略来兜底。',
+            tags: ['搜索字词报告']
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'meta',
+    title: 'Meta 广告实操',
+    subtitle: 'Facebook / Instagram 广告的账户结构、Pixel、机器学习、受众漏斗等核心知识',
+    icon: 'M',
+    sections: [
+      {
+        title: '基础认知',
+        questions: [
+          {
+            id: 'meta-001',
+            q: 'Google Ads 和 Meta 广告在用户触达逻辑上最本质的区别是？',
+            options: [
+              { text: 'Google 主动展示给用户，Meta 等用户搜索' },
+              { text: 'Google 是被动搜索（用户主动搜你），Meta 是主动展示（你被刷到）', correct: true },
+              { text: '两者完全一样，只是平台不同' },
+              { text: 'Google 只投 PC 端，Meta 只投移动端' }
+            ],
+            explain: '<strong>Google 是被动搜索</strong>——用户主动搜索时你被搜到，需求明确。<strong>Meta 是主动展示</strong>——你在信息流里被刷到，用户本没打算买。<br><br>因此优化重点完全不同：Google 拼<em>关键字精准度</em>，Meta 拼<em>素材第一秒抓人的能力</em>——80% 的效果差异来自素材。',
+            tags: ['基础']
+          },
+          {
+            id: 'meta-002',
+            q: 'Meta 广告的三层结构从最外层到最内层是什么？',
+            options: [
+              { text: '广告 → 广告组 → 广告系列' },
+              { text: '广告系列（Campaign） → 广告组（Ad Set） → 广告（Ad）', correct: true },
+              { text: 'BM → 广告账户 → 广告' },
+              { text: '受众 → 素材 → 预算' }
+            ],
+            explain: '<strong>广告系列 → 广告组 → 广告</strong>。<br><strong>广告系列</strong>选目标（销量/线索/流量等）；<strong>广告组</strong>定受众、预算、版位、出价；<strong>广告</strong>是具体素材（文案+图片/视频）。<br><br>跟 Google Ads 的结构类似，但<em>第三层是素材而不是关键字</em>。',
+            tags: ['基础', '账户结构']
+          },
+          {
+            id: 'meta-003',
+            q: '为什么 Meta 广告必须同时安装 Pixel 和 CAPI（转化 API）？',
+            options: [
+              { text: 'Meta 强制要求，否则不能投放' },
+              { text: 'iOS 14.5 后 ATT 框架让 Pixel 丢失 30–50% 数据，CAPI 通过服务器端补回来', correct: true },
+              { text: 'Pixel 和 CAPI 功能完全相同，装一个备份' },
+              { text: 'CAPI 比 Pixel 便宜' }
+            ],
+            explain: '<strong>Pixel</strong> 通过浏览器记录用户行为，<strong>CAPI</strong> 通过服务器端直接把数据传给 Meta。<br><br>iOS 14.5 之后 ATT 框架允许用户拒绝跨 App 追踪，导致 <em>Pixel 数据丢失 30–50%</em>。CAPI 绕过浏览器限制作为备份。<br><br>双装的真实效果：数据完整度从 50–70% 提升到 <strong>85–95%</strong>。',
+            tags: ['Pixel', 'CAPI']
+          }
+        ]
+      },
+      {
+        title: '机器学习与预算',
+        questions: [
+          {
+            id: 'meta-004',
+            q: 'Meta 广告组走出"学习阶段（Learning Phase）"的条件是？',
+            options: [
+              { text: '投放满 24 小时' },
+              { text: '广告组在 7 天内累计获得 50 个优化事件', correct: true },
+              { text: '广告组累计获得 1000 次点击' },
+              { text: '广告组消耗满 $100' }
+            ],
+            explain: '<strong>7 天内累计 50 个优化事件</strong>（你设的转化目标，比如 50 个购买）才能走出学习阶段。<br><br>拿不到 50 个就会标为 <strong>"Learning Limited"</strong>（学习受限），效果会持续不稳定。这也是为什么<em>小预算账户经常跑不动 Meta 广告</em>——凑不齐学习数据。',
+            tags: ['机器学习']
+          },
+          {
+            id: 'meta-005',
+            q: '下面哪个操作"不会"重置 Meta 广告组的学习阶段？',
+            options: [
+              { text: '改预算超过 20%' },
+              { text: '改受众' },
+              { text: '改出价策略' },
+              { text: '保持广告组不变，让它继续跑', correct: true }
+            ],
+            explain: '重置学习的操作包括：改预算>20%、改受众、改出价策略、改广告组结构、暂停>7 天后重启、改广告创意（部分情况）。<br><br><em>新手最大的坑就是看到效果不好立刻改，每改一次浪费一次学习。</em><strong>稳定 3–5 天再判断；要测新方向就复制广告组，不要改原组。</strong>',
+            tags: ['机器学习', '常见坑']
+          },
+          {
+            id: 'meta-006',
+            q: '新手投放 Meta 广告，应该先用 ABO 还是 CBO？',
+            options: [
+              { text: 'CBO，让 AI 自动分配预算更省心' },
+              { text: 'ABO，每个广告组单独设预算，能公平测试每个受众', correct: true },
+              { text: '随便用哪个都行' },
+              { text: '必须 ABO + CBO 同时用' }
+            ],
+            explain: '<strong>ABO（Ad Set Budget Optimization）</strong>= 广告组级别预算，<em>新手首选</em>。每个受众都有保底预算，能看清楚谁真的好。<br><br><strong>CBO（Campaign Budget Optimization）</strong>= 广告系列预算 AI 自动分配，可能把 90% 砸到一个组上，其他组没数据。<br><br>正确节奏：<em>ABO 测试 → 找出赢家组合 → 放进 CBO 系列里放量。</em>',
+            tags: ['ABO', 'CBO', '预算']
+          }
+        ]
+      },
+      {
+        title: '受众与素材',
+        questions: [
+          {
+            id: 'meta-007',
+            q: 'Meta 广告"三层漏斗"建议的预算分配大致是？',
+            options: [
+              { text: '冷流量 10% / 温流量 20% / 热流量 70%' },
+              { text: '冷流量 70% / 温流量 20% / 热流量 10%', correct: true },
+              { text: '三者各 33%' },
+              { text: '全部投热流量，复购成本最低' }
+            ],
+            explain: '<strong>冷 70% / 温 20% / 热 10%</strong>。<br><br><em>冷流量是拉新命脉</em>，必须重金投入；温流量收割犹豫的人（再营销）；热流量做复购，单次成本最低但池子小。<br><br>反过来全砸热流量会很快榨干现有客户，没有新血液补充，业务无法增长。',
+            tags: ['受众漏斗']
+          },
+          {
+            id: 'meta-008',
+            q: '朋友做电商问你："拉新客户应该用\'流量\'目标还是\'销量\'目标？"正确回答是？',
+            options: [
+              { text: '用流量目标，CPC 更便宜' },
+              { text: '用销量/转化目标，Meta 算法会找会买东西的人，而不是只爱点广告的人', correct: true },
+              { text: '两个都用，对比效果' },
+              { text: '都不重要，关键看素材' }
+            ],
+            explain: 'Meta 算法<em>只优化你设定的目标</em>：<br>选"流量" → 算法找<strong>爱点广告的人</strong>（点击多但不买）<br>选"销量" → 算法找<strong>会买东西的人</strong><br><br>这是 Meta 新手最经典的坑——流量目标 CPC 看起来低，但买的人极少，ROAS 惨。<em>电商必须用销量/转化目标。</em>',
+            tags: ['广告目标', '常见坑']
+          },
+          {
+            id: 'meta-009',
+            q: '广告组的 "Frequency（频次）" 突然涨到 5 以上，最不该做的事是？',
+            options: [
+              { text: '换新素材' },
+              { text: '扩大受众' },
+              { text: '再加预算继续投', correct: true },
+              { text: '暂停该广告组，启动新组' }
+            ],
+            explain: '<strong>频次 5+ 意味着严重的广告疲劳</strong>——同一波人反复看，CTR 下降、CPM 上升、ROAS 下滑。<br><br>这时<em>不能加预算</em>，加了只会让现有受众更疲劳、烧得更快。正确做法：换素材、扩受众、或者直接换广告组。<em>健康频次通常 &lt;2，&gt;3 就该警惕。</em>',
+            tags: ['频次', '广告疲劳']
+          },
+          {
+            id: 'meta-010',
+            q: '想合法地"抄"竞品的 Meta 广告创意，应该用什么官方工具？',
+            options: [
+              { text: '购买第三方爬虫工具' },
+              { text: 'Meta 广告资料库（Ad Library），facebook.com/ads/library/', correct: true },
+              { text: '向 Meta 客服申请查看' },
+              { text: '无法查看，只能猜' }
+            ],
+            explain: '<strong>Meta 广告资料库（Ad Library）</strong>是 Meta 官方的透明度工具，<em>免费查任何品牌正在投放的所有广告</em>。<br><br>用法：按国家筛选（看不同市场策略）、按类型筛选（图片/视频/轮播）、按时间看广告投了多久（投越久通常越有效）、看一个品牌当前同时投多少条变体。<br><br><em>这是合法的"抄作业"渠道——竞品已经替你测试过哪些素材有效。</em>',
+            tags: ['素材', '竞品分析']
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'scenarios',
+    title: '实战场景判断',
+    subtitle: '面对真实账户问题时的综合判断能力，跨平台的诊断与决策',
+    icon: '◆',
+    sections: [
+      {
+        title: '诊断与止损',
+        questions: [
+          {
+            id: 'scenarios-001',
+            q: '新广告组设了 $50/天，跑了 2 天 ROAS 只有 0.8（亏损）。你想把预算降到 $20/天止损。这个操作的问题是？',
+            options: [
+              { text: '没有问题，及时止损很对' },
+              { text: '2 天数据不够（学习阶段需要 7 天/50 转化）、降幅 60% 超过 20% 阈值会重置学习、且小预算更难凑齐 50 个转化', correct: true },
+              { text: '降幅不够大，应该直接关掉' },
+              { text: '应该改成 $30，不要降太多' }
+            ],
+            explain: '这个操作有<strong>三个连环问题</strong>：<br>① 2 天数据完全不够，广告组还在学习阶段，数据本来就不稳定<br>② 降幅 60% 远超 20% 阈值 → <em>重置机器学习</em>，前 2 天数据白费<br>③ 降预算让学习更难走完，永远凑不齐 50 个转化<br><br><strong>正确做法</strong>：让它跑满 3–5 天再判断；真要止损就<em>关掉这组，复制一个新广告组测试新方向</em>，不要改原组。',
+            tags: ['止损', '机器学习']
+          },
+          {
+            id: 'scenarios-002',
+            q: '客户说"我想投 Google Ads 卖高端商务皮鞋，预算 $300/月"。你的最佳回应是？',
+            options: [
+              { text: '好的，马上帮你建广告系列' },
+              { text: '$10/天对高端服饰偏紧（CPC $2–8 只能拿 2–4 次点击），数据样本不足以优化；建议提高预算、或集中投高意图长尾词、或先做 SEO 内容', correct: true },
+              { text: '$300 完全够，应该上 PMax 让 AI 自动跑' },
+              { text: 'Google Ads 不适合卖鞋，建议改投 Meta' }
+            ],
+            explain: '$300/月 ≈ $10/天，对高端服饰偏紧：<br><strong>CPC 高</strong>：英文关键词 $2–8，一天 2–4 次点击，<em>数据样本太小无法优化</em><br><strong>转化周期长</strong>：高客单价决策 7–30 天，短期看不到 ROAS<br><strong>智能出价跑不动</strong>：需要 30 天 15–30 个转化才能用<br><br><strong>建议方向</strong>：<em>要么提高到 $1000+/月；要么集中投完全匹配的品牌词/竞品词；要么先做 SEO 拉基础流量。</em>',
+            tags: ['预算诊断', '客户咨询']
+          }
+        ]
+      }
+    ]
+  }
+];
+
+/* ════════════════════════════════════════
+   工具函数
+   ════════════════════════════════════════ */
+function getCorrectIndex(question) {
+  return question.options.findIndex(opt => opt.correct === true);
+}
+function getQuestionsByModule(moduleId) {
+  const module = MODULES.find(m => m.id === moduleId);
+  if (!module) return [];
+  const result = [];
+  module.sections.forEach(s => s.questions.forEach(q => {
+    result.push({ ...q, section: s.title, module: module.title, moduleId: module.id });
+  }));
+  return result;
+}
+function getAllQuestions() {
+  const result = [];
+  MODULES.forEach(m => m.sections.forEach(s => s.questions.forEach(q => {
+    result.push({ ...q, section: s.title, module: m.title, moduleId: m.id });
+  })));
+  return result;
+}
+function getQuestionsByIds(ids) {
+  const all = getAllQuestions();
+  return ids.map(id => all.find(q => q.id === id)).filter(Boolean);
+}
+function getModuleStats() {
+  return MODULES.map(m => {
+    let count = 0;
+    m.sections.forEach(s => count += s.questions.length);
+    return { id: m.id, title: m.title, subtitle: m.subtitle, icon: m.icon, count };
+  });
+}
+
+/* ════════════════════════════════════════
+   错题本存储
+   ════════════════════════════════════════ */
+const MISTAKES_KEY = 'ads-quiz:mistakes';
+function getMistakes() {
+  try { return JSON.parse(localStorage.getItem(MISTAKES_KEY) || '[]'); }
+  catch { return []; }
+}
+function saveMistake(id) {
+  const set = new Set(getMistakes());
+  set.add(id);
+  localStorage.setItem(MISTAKES_KEY, JSON.stringify([...set]));
+}
+function removeMistake(id) {
+  const ids = getMistakes().filter(x => x !== id);
+  localStorage.setItem(MISTAKES_KEY, JSON.stringify(ids));
+}
+function clearMistakes() {
+  localStorage.removeItem(MISTAKES_KEY);
+}
+
+/* ════════════════════════════════════════
+   Hash 路由
+   #/                    → home (onboarding)
+   #/quiz?module=google  → 单模块练习
+   #/quiz?module=all     → 综合测试
+   #/quiz?mode=mistakes  → 错题本练习
+   #/mistakes            → 错题本预览页
+   ════════════════════════════════════════ */
+function parseHash() {
+  const hash = window.location.hash.slice(1) || '/';
+  const [path, queryStr] = hash.split('?');
+  const params = new URLSearchParams(queryStr || '');
+  return { path: path || '/', params };
+}
+
+function navigate(hash) {
+  window.location.hash = hash;
+}
+
+window.addEventListener('hashchange', render);
+window.addEventListener('DOMContentLoaded', render);
+
+function render() {
+  const { path, params } = parseHash();
+  const app = document.getElementById('app');
+  window.scrollTo({ top: 0, behavior: 'instant' });
+
+  if (path === '/' || path === '') {
+    renderHome(app);
+  } else if (path === '/quiz') {
+    renderQuiz(app, params);
+  } else if (path === '/mistakes') {
+    renderMistakes(app);
+  } else {
+    app.innerHTML = `<div class="container"><div class="empty-state"><div class="icon">∅</div><div class="title">页面不存在</div><a class="btn btn-primary" href="#/">回到首页</a></div></div>`;
+  }
+}
+
+/* ════════════════════════════════════════
+   页面：Home / Onboarding
+   ════════════════════════════════════════ */
+function renderHome(app) {
+  const stats = getModuleStats();
+  const all = getAllQuestions();
+  const mistakes = getMistakes();
+
+  app.innerHTML = `
+    <div class="container">
+      <div class="masthead">
+        <div class="masthead-left">Vol. 04 · 模块选择</div>
+        <div class="masthead-right">
+          <a id="reset-data" title="清空所有错题">⌫ 重置数据</a>
+        </div>
+      </div>
+
+      <div class="title-block">
+        <div class="kicker">— Choose Your Module —</div>
+        <h1>选个方向<br><em>开始练习</em></h1>
+        <p class="dek">按模块练习单一方向、做综合测试，或者打开错题本巩固薄弱项。题库会持续扩充，每次进入都可能有新题。</p>
+        <div class="meta-row">
+          <span>共 <strong>${all.length}</strong> 道题</span>
+          <span><strong>${stats.length}</strong> 个模块</span>
+          <span>错题 <strong>${mistakes.length}</strong> 道</span>
+        </div>
+      </div>
+
+      <div class="module-grid">
+        ${mistakes.length > 0
+          ? `<a class="module-card mistakes" href="#/mistakes">
+              <div class="module-icon">✗</div>
+              <div class="module-title">错题本</div>
+              <div class="module-subtitle">把答错过的题目集中起来反复练，直到完全吃透。</div>
+              <div class="module-footer">
+                <span>巩固薄弱项</span>
+                <strong>${mistakes.length} 题</strong>
+              </div>
+            </a>`
+          : `<div class="module-card mistakes empty">
+              <div class="module-icon">✗</div>
+              <div class="module-title">错题本</div>
+              <div class="module-subtitle">还没有错题——开始练习后，答错的题目会自动收录到这里。</div>
+              <div class="module-footer">
+                <span>暂无错题</span>
+                <strong>0 题</strong>
+              </div>
+            </div>`
+        }
+
+        <a class="module-card all-in-one" href="#/quiz?module=all">
+          <div class="module-icon">★</div>
+          <div class="module-title">综合测试</div>
+          <div class="module-subtitle">所有模块的题目混合在一起，模拟真实考试场景，全面检验你的掌握程度。</div>
+          <div class="module-footer">
+            <span>全模块混合</span>
+            <strong>${all.length} 题</strong>
+          </div>
+        </a>
+
+        ${stats.map(m => `
+          <a class="module-card" href="#/quiz?module=${encodeURIComponent(m.id)}">
+            <div class="module-icon">${m.icon}</div>
+            <div class="module-title">${m.title}</div>
+            <div class="module-subtitle">${m.subtitle}</div>
+            <div class="module-footer">
+              <span>单模块练习</span>
+              <strong>${m.count} 题</strong>
+            </div>
+          </a>
+        `).join('')}
+      </div>
+
+      <div class="colophon">
+        ✦ 制作：Claude × 你 ✦ 持续学习，持续投放，持续翻车，持续优化 ✦
+      </div>
+    </div>
+  `;
+
+  document.getElementById('reset-data').addEventListener('click', () => {
+    if (confirm('确定要清空所有错题记录吗？此操作不可恢复。')) {
+      clearMistakes();
+      render();
+    }
+  });
+}
+
+/* ════════════════════════════════════════
+   页面：Quiz / 答题
+   ════════════════════════════════════════ */
+function renderQuiz(app, params) {
+  const moduleId = params.get('module') || 'all';
+  const isMistakesMode = params.get('mode') === 'mistakes';
+
+  let questions = [];
+  let pageTitle = '', pageSubtitle = '', pageDek = '', moduleLabel = '';
+
+  if (isMistakesMode) {
+    questions = getQuestionsByIds(getMistakes());
+    pageTitle = '错题';
+    pageSubtitle = '巩固复习';
+    pageDek = '把答错过的题再做一遍。这次答对就会从错题本里移除，答错则继续保留。';
+    moduleLabel = '错题本';
+  } else if (moduleId === 'all') {
+    questions = getAllQuestions();
+    pageTitle = '综合';
+    pageSubtitle = '全面测试';
+    pageDek = '所有模块的题目混合在一起。点击选项即可作答，答错的题会自动收录进错题本。';
+    moduleLabel = '综合测试';
+  } else {
+    const module = MODULES.find(m => m.id === moduleId);
+    if (module) {
+      questions = getQuestionsByModule(moduleId);
+      const parts = module.title.split(' ');
+      pageTitle = parts[0];
+      pageSubtitle = parts.slice(1).join(' ') || '专项练习';
+      pageDek = module.subtitle;
+      moduleLabel = module.title;
+    }
+  }
+
+  if (questions.length === 0) {
+    app.innerHTML = `
+      <div class="container">
+        <div class="masthead">
+          <div class="masthead-left">Vol. 04</div>
+          <div class="masthead-right"><a href="#/">← 返回选择模块</a></div>
+        </div>
+        <div class="empty-state" style="margin-top: 80px;">
+          <div class="icon">∅</div>
+          <div class="title">${isMistakesMode ? '错题本是空的' : '没找到这个模块的题目'}</div>
+          <div class="text">${
+            isMistakesMode
+              ? '先去做几轮测试吧，答错的题会自动出现在这里。'
+              : '可能是链接参数错了，回到首页重新选一个模块。'
+          }</div>
+          <a class="btn btn-primary" href="#/">回到首页</a>
+        </div>
+      </div>
+    `;
+    return;
+  }
+
+  document.title = `${moduleLabel} · 广告投放知识测验`;
+
+  app.innerHTML = `
+    <div class="container">
+      <div class="masthead">
+        <div class="masthead-left">Vol. 04 · 答题中</div>
+        <div class="masthead-right">
+          <a href="#/">← 返回选择模块</a>
+          <span class="divider">·</span>
+          <a href="#/mistakes">错题本</a>
+        </div>
+      </div>
+
+      <div class="title-block">
+        <div class="kicker">— ${moduleLabel} —</div>
+        <h1>${pageTitle}<br><em>${pageSubtitle}</em></h1>
+        <p class="dek">${pageDek}</p>
+        <div class="meta-row">
+          <span><strong>${moduleLabel}</strong></span>
+          <span><strong>${questions.length}</strong> 题</span>
+          <span>预计 <strong>${Math.max(2, Math.ceil(questions.length * 0.4))}</strong> 分钟</span>
+        </div>
+      </div>
+
+      <div class="score-panel">
+        <div>
+          <div class="score-label">已作答</div>
+          <div class="score-value"><span id="answered">0</span><em>/${questions.length}</em></div>
+        </div>
+        <div>
+          <div class="score-label">答对</div>
+          <div class="score-value correct"><span id="correct">0</span></div>
+        </div>
+        <div>
+          <div class="score-label">答错</div>
+          <div class="score-value wrong"><span id="wrong">0</span></div>
+        </div>
+        <div>
+          <div class="score-label">正确率</div>
+          <div class="score-value"><span id="accuracy">—</span></div>
+        </div>
+        <div class="score-progress">
+          <div class="progress-label-row">
+            <span>当前进度</span>
+            <span><span id="pct">0</span>%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="quiz-root"></div>
+
+      <div class="final-card" id="final-card">
+        <div class="final-kicker">— Final Score —</div>
+        <div class="final-title">练习完成，<em>你的成绩</em></div>
+        <div class="final-score"><span id="final-correct">0</span><em>/${questions.length}</em></div>
+        <div class="final-grade" id="final-grade">—</div>
+        <div class="final-text" id="final-text"></div>
+        <div class="final-actions">
+          <button class="btn btn-primary" id="retry-btn">↻ 再做一次</button>
+          <a class="btn btn-ghost" href="#/mistakes" id="mistakes-link">查看错题本</a>
+          <a class="btn btn-ghost" href="#/">换个模块</a>
+        </div>
+      </div>
+
+      <div class="colophon">✦ 制作：Claude × 你 ✦</div>
+    </div>
+  `;
+
+  renderQuestions(questions, moduleId, isMistakesMode);
+}
+
+function renderQuestions(questions, moduleId, isMistakesMode) {
+  const root = document.getElementById('quiz-root');
+  const groups = [];
+  const seen = new Map();
+  questions.forEach(q => {
+    const key = (isMistakesMode || moduleId === 'all') ? (q.module || '题目') : (q.section || '题目');
+    if (!seen.has(key)) {
+      const g = { title: key, questions: [] };
+      seen.set(key, g);
+      groups.push(g);
+    }
+    seen.get(key).questions.push(q);
+  });
+
+  const romans = ['I.', 'II.', 'III.', 'IV.', 'V.', 'VI.', 'VII.', 'VIII.', 'IX.', 'X.'];
+  let qIndex = 0;
+  let html = '';
+
+  groups.forEach((g, gIdx) => {
+    if (groups.length > 1) {
+      const start = qIndex + 1;
+      const end = qIndex + g.questions.length;
+      html += `
+        <div class="section-header">
+          <div class="section-num">${romans[gIdx] || (gIdx+1)+'.'}</div>
+          <div class="section-title">${g.title}</div>
+          <div class="section-meta">Q${String(start).padStart(2,'0')} — Q${String(end).padStart(2,'0')}</div>
+        </div>
+      `;
+    }
+    g.questions.forEach(q => {
+      qIndex++;
+      const correctIdx = getCorrectIndex(q);
+      if (correctIdx === -1) console.warn(`[题库错误] ${q.id} 没有 correct 标记`);
+      const num = String(qIndex).padStart(2, '0');
+      const optsHTML = q.options.map((opt, i) => {
+        const letter = ['A', 'B', 'C', 'D'][i];
+        return `<button class="option" data-idx="${i}"><span class="opt-letter">${letter}</span><span class="opt-text">${opt.text}</span></button>`;
+      }).join('');
+      html += `
+        <div class="question" data-qid="${q.id}" data-correct="${correctIdx}">
+          <div class="q-header">
+            <div class="q-num">Q.${num}</div>
+            <div class="q-text">${q.q}</div>
+          </div>
+          <div class="options">${optsHTML}</div>
+          <div class="explanation">
+            <div class="exp-label">解析</div>
+            <div class="exp-content">${q.explain}</div>
+          </div>
+        </div>
+      `;
+    });
+  });
+
+  root.innerHTML = html;
+
+  document.querySelectorAll('.question').forEach(qEl => {
+    const correctIdx = parseInt(qEl.dataset.correct);
+    const qid = qEl.dataset.qid;
+    const options = qEl.querySelectorAll('.option');
+    const explanation = qEl.querySelector('.explanation');
+    options.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (qEl.classList.contains('answered')) return;
+        const picked = parseInt(btn.dataset.idx);
+        const isRight = picked === correctIdx;
+        options.forEach((b, i) => {
+          b.disabled = true;
+          if (i === correctIdx) b.classList.add('correct');
+          else if (i === picked && !isRight) b.classList.add('wrong');
+          else b.classList.add('faded');
+        });
+        if (isRight) {
+          qEl.dataset.result = 'correct';
+          if (isMistakesMode) removeMistake(qid);
+        } else {
+          qEl.dataset.result = 'wrong';
+          explanation.classList.add('wrong-style');
+          saveMistake(qid);
+        }
+        qEl.classList.add('answered');
+        explanation.classList.add('show');
+        updateScore(questions.length);
+      });
+    });
+  });
+
+  document.getElementById('retry-btn').addEventListener('click', () => {
+    if (isMistakesMode) {
+      render();
+    } else {
+      renderQuestions(questions, moduleId, isMistakesMode);
+      updateScore(questions.length);
+      document.getElementById('final-card').classList.remove('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
+}
+
+function updateScore(total) {
+  const allQs = document.querySelectorAll('.question');
+  let answered = 0, correct = 0, wrong = 0;
+  allQs.forEach(q => {
+    if (q.classList.contains('answered')) {
+      answered++;
+      if (q.dataset.result === 'correct') correct++;
+      else wrong++;
+    }
+  });
+  document.getElementById('answered').textContent = answered;
+  document.getElementById('correct').textContent = correct;
+  document.getElementById('wrong').textContent = wrong;
+  document.getElementById('accuracy').textContent = answered === 0 ? '—' : Math.round(correct / answered * 100) + '%';
+  const pct = Math.round(answered / total * 100);
+  document.getElementById('pct').textContent = pct;
+  document.getElementById('progress-fill').style.right = (100 - pct) + '%';
+  if (answered === total) showFinalCard(correct, total);
+}
+
+function showFinalCard(correct, total) {
+  const pct = correct / total;
+  document.getElementById('final-correct').textContent = correct;
+  let grade, text;
+  if (pct >= 0.9) {
+    grade = '★ ★ ★ ★ ★ · 专家级';
+    text = '几乎全对——这个模块你已经吃透了。可以挑战别的模块，或者去综合测试里检验整体水平。';
+  } else if (pct >= 0.75) {
+    grade = '★ ★ ★ ★ · 进阶级';
+    text = '大部分都答对了，掌握得不错。错题已自动加入错题本，回去刷一遍把盲点补上。';
+  } else if (pct >= 0.6) {
+    grade = '★ ★ ★ · 入门级';
+    text = '基础概念有了，但还有不少细节没吃透。建议把错题本过一遍，对应回前面聊过的内容再梳理一次。';
+  } else {
+    grade = '★ ★ · 起步阶段';
+    text = '别气馁——这些题包含了不少操作细节和坑，第一次接触全答对几乎不可能。<em>错题本里的题反复刷，看一次记不住很正常。</em>';
+  }
+  document.getElementById('final-grade').textContent = grade;
+  document.getElementById('final-text').innerHTML = text;
+  if (getMistakes().length === 0) {
+    document.getElementById('mistakes-link').style.display = 'none';
+  }
+  document.getElementById('final-card').classList.add('show');
+  setTimeout(() => {
+    document.getElementById('final-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 300);
+}
+
+/* ════════════════════════════════════════
+   页面：Mistakes / 错题本
+   ════════════════════════════════════════ */
+function renderMistakes(app) {
+  const ids = getMistakes();
+  const questions = getQuestionsByIds(ids);
+
+  document.title = '错题本 · 广告投放知识测验';
+
+  let distHTML = '';
+  if (questions.length > 0) {
+    const dist = {};
+    questions.forEach(q => { dist[q.module] = (dist[q.module] || 0) + 1; });
+    distHTML = Object.entries(dist).map(([m, c]) => `${m} <strong>${c}</strong>`).join(' · ');
+  }
+
+  app.innerHTML = `
+    <div class="container">
+      <div class="masthead">
+        <div class="masthead-left">Vol. 04 · 错题本</div>
+        <div class="masthead-right"><a href="#/">← 返回选择模块</a></div>
+      </div>
+
+      <div class="title-block">
+        <div class="kicker">— Mistakes Journal —</div>
+        <h1>错题本<br><em>逐个攻破</em></h1>
+        <p class="dek">这里收集了你答错过的题目。点击"开始练习"逐一过关——答对的题会自动从错题本移除，答错的继续保留。直到清空为止。</p>
+        <div class="meta-row">
+          <span>共 <strong>${questions.length}</strong> 道错题</span>
+          <span>${distHTML}</span>
+        </div>
+      </div>
+
+      ${questions.length === 0 ? `
+        <div class="empty-state">
+          <div class="icon">✓</div>
+          <div class="title">错题本是空的</div>
+          <div class="text">说明你的水平已经超过当前题库了——或者还没开始练习。先去做几轮测试吧，答错的题会自动出现在这里。</div>
+          <a class="btn btn-primary" href="#/">回到首页</a>
+        </div>
+      ` : `
+        <div class="mistakes-toolbar">
+          <div class="mistakes-toolbar-info">有 <strong>${questions.length}</strong> 道题等你攻破</div>
+          <div class="mistakes-toolbar-actions">
+            <a class="toolbar-btn primary" href="#/quiz?mode=mistakes">▶ 开始练习</a>
+            <button class="toolbar-btn danger" id="clear-btn">⌫ 全部清空</button>
+          </div>
+        </div>
+        ${questions.map((q, idx) => `
+          <div class="mistake-preview">
+            <div class="mistake-header">
+              <div class="mistake-tag">
+                <span>Q.${String(idx+1).padStart(2,'0')}</span>
+                <span class="module-tag">${q.module}</span>
+                ${q.section ? `<span>${q.section}</span>` : ''}
+              </div>
+              <button class="mistake-remove" data-id="${q.id}">✗ 移除</button>
+            </div>
+            <div class="mistake-q">${q.q}</div>
+          </div>
+        `).join('')}
+      `}
+
+      <div class="colophon">✦ 反复练 · 直到清空 ✦</div>
+    </div>
+  `;
+
+  if (questions.length > 0) {
+    document.getElementById('clear-btn').addEventListener('click', () => {
+      if (confirm(`确定要清空全部 ${questions.length} 道错题吗？此操作不可恢复。`)) {
+        clearMistakes();
+        render();
+      }
+    });
+    document.querySelectorAll('.mistake-remove').forEach(btn => {
+      btn.addEventListener('click', () => {
+        removeMistake(btn.dataset.id);
+        render();
+      });
+    });
+  }
+}
+</script>
+
+</body>
+</html>
