@@ -803,6 +803,47 @@ const MODULES = [
     icon: 'G',
     sections: [
       {
+        title: '账户结构与层级',
+        questions: [
+          {
+            id: 'google-011',
+            q: 'Google Search Ads 的完整层级结构从上到下是？',
+            options: [
+              { text: '账户 → 广告组 → 广告系列 → 广告' },
+              { text: '账户 → 广告系列 → 广告组 → 广告', correct: true },
+              { text: '广告系列 → 账户 → 广告组 → 关键词' },
+              { text: '账户 → 广告 → 广告组 → 广告系列' }
+            ],
+            explain: '<strong>正确结构：账户 → 广告系列（Campaign）→ 广告组（Ad Group）→ 广告（Ad）</strong>。<br><br>记忆要点：预算在广告系列层、关键词在广告组层、落地页在广告层。这三个常见混淆点考试必考。',
+            tags: ['账户结构', '基础']
+          },
+          {
+            id: 'google-012',
+            q: '下面哪个说法关于 Google Ads 层级设置是正确的？',
+            options: [
+              { text: '预算在广告组层级设置，每个广告组有独立预算' },
+              { text: '关键词在广告层级设置' },
+              { text: '落地页 URL 在广告层级设置，每个广告可以有不同 URL', correct: true },
+              { text: '出价策略在广告组层级统一设置' }
+            ],
+            explain: '三大常见混淆点：<br><strong>① 预算在 Campaign 层级</strong>，不是广告组（一个 Campaign 预算被所有 Ad Group 共享）<br><strong>② 关键词在 Ad Group 层级</strong>，不是广告层<br><strong>③ 落地页 URL 在 Ad 层级</strong>，每个广告可以指向不同 URL<br><br>出价策略也在 Campaign 层级统一设置。',
+            tags: ['账户结构', '常见坑']
+          },
+          {
+            id: 'google-013',
+            q: 'Assets（附加信息，原名 Ad Extensions）应该怎么添加？',
+            options: [
+              { text: '只能在广告层级添加' },
+              { text: '只能在广告系列层级添加' },
+              { text: '可以在广告系列或广告组层级添加，强烈建议都加上', correct: true },
+              { text: 'Assets 需要额外付费，谨慎使用' }
+            ],
+            explain: '<strong>Assets 完全免费</strong>，可以在 Campaign 或 Ad Group 层级添加。强烈建议所有能加的都加上——Sitelinks、Callouts、Structured snippets 等。<br><br>好处：<em>免费扩展广告展示面积，提升点击率（CTR）</em>。广告占据更多屏幕空间，竞争对手广告被压低。不加是在白白损失。',
+            tags: ['Assets', '账户结构']
+          }
+        ]
+      },
+      {
         title: '基础操作',
         questions: [
           {
@@ -864,6 +905,88 @@ const MODULES = [
             ],
             explain: '单日最多花到 <strong>日预算的 2 倍</strong>，即 $20。但<em>月度结算才是真实上限</em>——按 30.4 天算，月花费不会超过 $304。所以单日超支别慌，看月度即可。',
             tags: ['预算']
+          }
+        ]
+      },
+      {
+        title: 'RSA 广告与出价策略',
+        questions: [
+          {
+            id: 'google-014',
+            q: '响应式搜索广告（RSA）最多可以填写多少条标题和多少条描述？',
+            options: [
+              { text: '5 条标题 / 2 条描述' },
+              { text: '10 条标题 / 4 条描述' },
+              { text: '15 条标题 / 4 条描述', correct: true },
+              { text: '15 条标题 / 2 条描述' }
+            ],
+            explain: 'RSA 上限：<strong>15 条标题（每条 ≤ 30 字符）/ 4 条描述（每条 ≤ 90 字符）</strong>。Google 会自动从中组合，每次展示 3 条标题 + 2 条描述。<br><br>建议：把 15 条标题都写满，覆盖不同卖点角度（关键词、CTA、差异化卖点、促销信息……），给 Google 算法更多优化空间。写不满就是在浪费。',
+            tags: ['RSA', '广告文案']
+          },
+          {
+            id: 'google-015',
+            q: 'RSA 里的 Pinning（固定）功能，正确的使用姿势是？',
+            options: [
+              { text: '把所有重要标题都固定在位置 1/2/3，确保核心信息必须出现' },
+              { text: '只固定 1–2 条最核心文案，其余留给 Google 自由组合', correct: true },
+              { text: 'Pinning 是必须操作，不 Pin 广告不会跑' },
+              { text: 'Pinning 越多广告质量得分越高' }
+            ],
+            explain: 'Pinning 的副作用：<strong>固定越多，Google 的优化空间越小</strong>。算法没有足够自由度组合时，Ad Strength（广告强度）会下降。<br><br>推荐只固定 1–2 条真正不能挪动的核心文案（比如品牌名必须在标题 1）。<em>其余标题让 Google 自由组合——AI 测试出的最佳组合往往超出人的预判。</em>',
+            tags: ['RSA', '广告文案']
+          },
+          {
+            id: 'google-016',
+            q: '新账户刚上线，应该选哪种出价策略？等有了稳定转化数据后再切换到什么？',
+            options: [
+              { text: '先用 Manual CPC，有数据后切 Target ROAS' },
+              { text: '先用 Maximize Conversions，有 30+ 月度转化后切 Target CPA 或 Target ROAS', correct: true },
+              { text: '直接用 Target CPA，设一个合理目标值' },
+              { text: '先用 Maximize Clicks，流量大了再优化' }
+            ],
+            explain: '<strong>新账户出价策略路线图</strong>：<br>① 上线初期 → <em>Maximize Conversions</em>（最大化转化，让 Google 学习你的转化模式）<br>② 积累 30+ 月度稳定转化后 → 切换到 <em>Target CPA</em> 或 <em>Target ROAS</em><br><br>Manual CPC 新账户不推荐——缺数据时很难人工判断每个关键词该出多少。Maximize Clicks 只优化点击量，不管转化。',
+            tags: ['出价策略', '新手']
+          }
+        ]
+      },
+      {
+        title: '广告指标',
+        questions: [
+          {
+            id: 'google-017',
+            q: 'CPM、CPC、CPA 三个指标在漏斗中从浅到深的顺序是？',
+            options: [
+              { text: 'CPA → CPC → CPM' },
+              { text: 'CPC → CPM → CPA' },
+              { text: 'CPM → CPC → CPA', correct: true },
+              { text: '三者没有漏斗顺序，相互独立' }
+            ],
+            explain: '漏斗从浅到深：<strong>曝光 → 点击 → 转化</strong><br><strong>CPM</strong>（千次曝光成本）→ <strong>CPC</strong>（单次点击成本）→ <strong>CPA</strong>（单次转化成本）<br><br>越往深处，单位成本越高，但商业价值越大。<em>日常优化同时看两端</em>：CPM/CPC/CTR 判断广告是否吸引人；CPA/ROAS 判断广告是否赚钱。只看一端会误判。',
+            tags: ['指标', '基础']
+          },
+          {
+            id: 'google-018',
+            q: 'ROAS = 3 是什么意思？',
+            options: [
+              { text: '花了 $3 带来了 $1 的收入，亏损' },
+              { text: '花了 $1 带来了 $3 的转化价值，即广告支出回报率为 300%', correct: true },
+              { text: '转化率是 3%' },
+              { text: '每次点击成本是 $3' }
+            ],
+            explain: '<strong>ROAS = 转化价值 ÷ 总花费</strong>。ROAS = 3 意味着每花 $1 广告费，带来 $3 的销售额（即 300%）。<br><br>ROAS > 1 才是盈利，具体"够不够好"要看利润率——如果毛利率 40%，ROAS 需要至少 2.5 才能打平。<em>Target ROAS 出价策略就是告诉 Google 你的 ROAS 目标值，让算法自动调整出价。</em>',
+            tags: ['指标', 'ROAS']
+          },
+          {
+            id: 'google-019',
+            q: 'CTR（点击率）很高但 CVR（转化率）很低，最可能的原因是？',
+            options: [
+              { text: '广告文案写得不好，没人点' },
+              { text: '广告文案吸引了点击，但落地页与广告承诺不符，或落地页体验差', correct: true },
+              { text: '关键词匹配类型太精准' },
+              { text: 'CPC 出价太低' }
+            ],
+            explain: '<strong>CTR 高 = 广告有吸引力；CVR 低 = 落地页出了问题</strong>。<br><br>常见原因：广告承诺"免费试用"但落地页直接要信用卡、页面加载慢（>3 秒跳出率剧增）、落地页内容和广告关键词不匹配、页面缺乏信任要素（评价、案例、保障）。<br><br><em>指标诊断思路：把漏斗拆开看——每一层指标低，问题就在对应那一层。</em>',
+            tags: ['指标', 'CTR', 'CVR']
           }
         ]
       },
