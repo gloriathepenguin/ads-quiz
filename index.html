@@ -1197,6 +1197,170 @@ const MODULES = [
             tags: ['素材', '竞品分析']
           }
         ]
+      },
+      {
+        title: '账户结构与目标',
+        questions: [
+          {
+            id: 'meta-011',
+            q: 'Meta Ads 完整的账户层级从上到下是？',
+            options: [
+              { text: 'Ad Account → Campaign → Ad → Ad Set' },
+              { text: 'Business Manager → Ad Account → Campaign → Ad Set → Ad', correct: true },
+              { text: 'Campaign → Ad Account → Business Manager → Ad' },
+              { text: 'Business Manager → Campaign → Ad Account → Ad' }
+            ],
+            explain: '<strong>五层结构从上到下</strong>：Business Manager（商务管理平台）→ Ad Account（广告账户）→ Campaign（广告系列）→ Ad Set（广告组）→ Ad（广告）。<br><br>各层职责：BM 管权限和资产；Ad Account 管付款；Campaign 设目标；<em>Ad Set 管受众、版位、预算、出价</em>；Ad 是创意内容。',
+            tags: ['账户结构', '基础']
+          },
+          {
+            id: 'meta-012',
+            q: 'Meta 的 ODAX 框架把广告目标分为 6 个。电商想要直接带来购买，应该选哪个目标？',
+            options: [
+              { text: 'Traffic（流量）——CPC 便宜' },
+              { text: 'Engagement（互动）——增加曝光' },
+              { text: 'Sales（销售）', correct: true },
+              { text: 'Awareness（品牌知名度）' }
+            ],
+            explain: '<strong>目标选错是 Meta 最大的坑</strong>。选"Traffic"优化点击——算法会找爱点广告的人，点击多但不买；选"Sales"优化购买——算法找会买东西的人。<br><br>6 个 ODAX 目标：Awareness、Traffic、Engagement、Leads、App Promotion、<em>Sales（电商必选）</em>。<br><br>目标决定了算法优化方向，选错了加再多预算也枉然。',
+            tags: ['广告目标', 'ODAX']
+          },
+          {
+            id: 'meta-013',
+            q: 'Meta Ad Set 层主要设置哪些内容？',
+            options: [
+              { text: '广告目标和转化事件' },
+              { text: '创意图片、视频和文案' },
+              { text: '受众定向、版位、预算、出价策略、排期', correct: true },
+              { text: '付款方式和账单信息' }
+            ],
+            explain: 'Meta 三层分工：<br><strong>Campaign</strong>：目标（买什么）<br><strong>Ad Set</strong>：<em>受众（找谁）、版位（在哪展示）、预算（花多少）、出价策略（怎么出价）、排期（什么时候）</em><br><strong>Ad</strong>：创意内容（说什么、用什么素材）<br><br>Ad Set 是控制变量最多的一层，大部分优化操作都在这里。',
+            tags: ['账户结构', 'Ad Set']
+          }
+        ]
+      },
+      {
+        title: '受众类型',
+        questions: [
+          {
+            id: 'meta-014',
+            q: 'Meta 的三种受众类型中，"Lookalike Audience（相似受众）"是基于什么生成的？',
+            options: [
+              { text: '基于用户填写的兴趣标签' },
+              { text: '基于"种子受众"（如购买客户名单），找行为模式相似的新用户', correct: true },
+              { text: '基于用户的年龄和地理位置' },
+              { text: '基于竞品广告的受众数据' }
+            ],
+            explain: 'Meta 三类受众：<br><strong>Core Audience</strong>（核心受众）：手动设置兴趣/行为/人口——冷受众，适合冷启动<br><strong>Custom Audience</strong>（自定义受众）：已与品牌互动的人——温受众，用于再营销<br><strong>Lookalike Audience</strong>：以 Custom Audience 为"种子"，找行为相似的新用户——<em>冷受众但质量高</em><br><br>最佳种子：最近 180 天内的购买客户名单。比例 1-3% 相似度最高，10% 量大但精准度低。',
+            tags: ['受众', 'Lookalike']
+          },
+          {
+            id: 'meta-015',
+            q: 'Custom Audience（自定义受众）可以基于哪些来源创建？（选最全的答案）',
+            options: [
+              { text: '只能上传 CRM 客户名单' },
+              { text: '只能用网站 Pixel 数据' },
+              { text: '网站访客、客户名单、视频互动、主页互动、App 用户等多种来源', correct: true },
+              { text: '只能用 Meta 平台内的互动数据' }
+            ],
+            explain: '<strong>Custom Audience 来源多样</strong>：<br>• 网站访客（Pixel 追踪）<br>• CRM 客户名单（上传邮箱/手机哈希匹配）<br>• 视频观看互动（看了 25%/50%/75%/95% 的用户）<br>• FB/IG 主页互动（点赞、评论、私信）<br>• App 用户行为<br>• Lead Form 互动<br><br><em>这些是"已知道你"的温流量，再营销成本最低、转化率最高。</em>',
+            tags: ['受众', 'Custom Audience']
+          },
+          {
+            id: 'meta-016',
+            q: 'Advantage+ Audience 和传统 Core Audience（手动兴趣定向）的本质区别是？',
+            options: [
+              { text: 'Advantage+ Audience 更便宜' },
+              { text: 'Advantage+ Audience 只能投 Reels' },
+              { text: 'Core Audience 是"你告诉 Meta 找谁"，Advantage+ Audience 是"你告诉 Meta 目标，它自己找人"', correct: true },
+              { text: '两者完全相同，只是叫法不同' }
+            ],
+            explain: '2025 年趋势：Meta 在用 AI 逐步替代手动定向。<br><br><strong>Core Audience</strong>：你明确指定兴趣/行为/人口属性，Meta 在这个范围内投<br><strong>Advantage+ Audience</strong>：你给一些"受众建议"作为起点，Meta AI 会自动突破边界扩展受众——Meta 测试数据显示 CPC 低 28%、转化成本低 7%<br><br><em>趋势是越来越自动化，手动定向的控制权在减少。</em>',
+            tags: ['受众', 'Advantage+']
+          }
+        ]
+      },
+      {
+        title: '出价策略与版位',
+        questions: [
+          {
+            id: 'meta-017',
+            q: 'Cost Cap、Bid Cap、Lowest Cost 三种出价策略，哪个投放量最大、成本最不可控？',
+            options: [
+              { text: 'Cost Cap' },
+              { text: 'Bid Cap' },
+              { text: 'Lowest Cost', correct: true },
+              { text: '三者投放量相同' }
+            ],
+            explain: '<strong>投放量从大到小：Lowest Cost > Cost Cap > Bid Cap</strong><br><br><em>Lowest Cost</em>：无成本限制，花光预算为止，量最大，但 CPA 不可控——适合冷启动、数据积累<br><em>Cost Cap</em>：设定平均 CPA 上限，控均值，偶有超标——适合有明确成本目标的阶段<br><em>Bid Cap</em>：控每次竞拍的最高出价，最严格，量最少，预算经常跑不完<br><br>新账户建议先用 Lowest Cost 积累数据，再切 Cost Cap。',
+            tags: ['出价策略']
+          },
+          {
+            id: 'meta-018',
+            q: 'Meta 版位中，Feed（信息流）的最佳图片比例是什么？Stories/Reels 是什么？',
+            options: [
+              { text: 'Feed：1:1；Stories/Reels：1:1' },
+              { text: 'Feed：16:9；Stories/Reels：9:16' },
+              { text: 'Feed：4:5（占屏最多）；Stories/Reels：9:16', correct: true },
+              { text: 'Feed：9:16；Stories/Reels：4:5' }
+            ],
+            explain: '<strong>版位尺寸速查</strong>：<br>• Feed（FB/IG 信息流）：推荐 <em>4:5</em>（1080×1350px）——比 1:1 多占 25% 屏幕面积，停留注意力更多<br>• Stories / Reels：<em>9:16</em>（1080×1920px）——全屏竖版<br><br>Stories/Reels 注意安全区：顶部14%、底部20% 留白，避免被 UI 元素遮挡。图片文字占比不要超过 20%。',
+            tags: ['版位', '创意规格']
+          },
+          {
+            id: 'meta-019',
+            q: 'Advantage+ Placements（版位自动优化）和手动选版位相比，哪个通常 CPA 更低？',
+            options: [
+              { text: '手动选版位，因为可以排除低质量流量' },
+              { text: 'Advantage+ Placements，Meta AI 会找到最优版位组合', correct: true },
+              { text: '两者没有区别' },
+              { text: '取决于广告目标，无法一概而论' }
+            ],
+            explain: 'Meta 官方数据和行业实测：<strong>Advantage+ Placements 通常 CPA 更低</strong>。原因是 AI 可以跨 FB、IG、Messenger、Audience Network 动态分配，找到性价比最高的曝光机会。<br><br>手动选版位的适用场景：特定品牌安全需求（排除 Audience Network）、创意只有一个尺寸、投 Reels 想单独测试效果。<br><br><em>默认让 Meta AI 管版位，除非有明确理由需要控制。</em>',
+            tags: ['版位', 'Advantage+']
+          }
+        ]
+      },
+      {
+        title: 'Advantage+ 与进阶策略',
+        questions: [
+          {
+            id: 'meta-020',
+            q: 'Advantage+ Shopping Campaign（ASC）的核心特点是？',
+            options: [
+              { text: '只能投购物类目，其他行业不能用' },
+              { text: '上传多组创意，AI 自动组合测试并把拉新和再营销合并在一个 Campaign 里统一优化', correct: true },
+              { text: '必须连接 Google Merchant Center' },
+              { text: '只适合大账户，预算需要 $10,000+ 才能启用' }
+            ],
+            explain: '<strong>Advantage+ Shopping Campaign（ASC）是 Meta 的"自动驾驶"购物广告</strong>：<br>• 上传多组创意（图/视频/文案），AI 自动组合测试<br>• <em>把拉新和再营销合并为一个 Campaign</em>，AI 决定预算分配<br>• 无需手动设置受众，Meta AI 全自动寻找转化用户<br>• 可设"Existing Customer Budget Cap"控制再营销预算比例<br><br>适合：数据成熟的电商账户（有足够转化历史）。新账户数据不够时 AI 无从优化。',
+            tags: ['Advantage+', 'ASC', '电商']
+          },
+          {
+            id: 'meta-021',
+            q: '"广告组过多碎片化"会带来什么问题？',
+            options: [
+              { text: '广告太多了用户会感到烦躁' },
+              { text: '每个广告组预算被摊薄，单组无法凑齐 50 个事件走出学习阶段，长期 Learning Limited', correct: true },
+              { text: 'Meta 会封号' },
+              { text: '创意会互相竞争，导致 CPM 上升' }
+            ],
+            explain: '<strong>碎片化是 Meta 新手第二常见的坑</strong>（第一是目标选错）。<br><br>例子：$100/天预算 → 分成 5 个 Ad Set 各 $20 → 每组一天 1 个转化 → 7 天 7 个，远不够 50 个 → 永远 Learning Limited → 效果长期不稳定<br><br><em>正确做法：合并受众相近的广告组，把预算集中。宁可 1 个 $100/天的 Ad Set，不要 5 个 $20/天的。</em>',
+            tags: ['学习阶段', '常见坑']
+          },
+          {
+            id: 'meta-022',
+            q: 'Event Match Quality（EMQ）是什么，多少分算合格？',
+            options: [
+              { text: 'Meta 评估广告创意质量的分数，10 分满分，8 分以上优秀' },
+              { text: 'Meta 评估 CAPI 传来的用户数据能匹配到 Meta 账号的程度，0–10 分，6 分以上良好', correct: true },
+              { text: '广告的点击率评分，越高 CPC 越低' },
+              { text: '账户信任度评分，影响是否限流' }
+            ],
+            explain: '<strong>EMQ（Event Match Quality）</strong>反映 CAPI 传来的事件数据被 Meta 成功匹配到用户账号的比例。<br><br>评分 0–10：<em>6 分以上为良好，8+ 为优秀</em>。<br><br>提升 EMQ 的方法：传更多用户信息（邮箱、手机号、姓名、地址同时传）、确保数据做了正确的 SHA-256 哈希、使用 Meta 官方 CAPI Gateway 或 Conversions API 集成。<br><br>EMQ 低 = 转化数据传过去但匹配不上用户 = 算法白白浪费信号，优化方向跑偏。',
+            tags: ['CAPI', 'EMQ']
+          }
+        ]
       }
     ]
   },
