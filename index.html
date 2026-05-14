@@ -714,11 +714,11 @@ const MODULES = [
   {
     id: 'overview',
     title: '广告类型大局观',
-    subtitle: '建立 Google Ads 全产品的整体认知，理解每种广告类型的定位、人群和适用场景',
+    subtitle: '建立 Google Ads 与 Meta 广告的整体认知，理解两大平台的定位、广告类型和适用场景',
     icon: '◐',
     sections: [
       {
-        title: '基础认知',
+        title: 'Google Ads 大局观',
         questions: [
           {
             id: 'overview-001',
@@ -791,6 +791,83 @@ const MODULES = [
             ],
             explain: '<strong>Demand Gen 需要 8 周才是完整周期</strong>——这是它最容易被骂"没效果"的原因，很多人 2 周就放弃了。<br><br>记住各类型的学习周期：搜索 1–2 周、购物 2–3 周、PMax 4–6 周、<strong>Demand Gen 8 周</strong>、YouTube 6–8 周。<em>不到周期就改预算/改设置 = 浪费学习数据。</em>',
             tags: ['学习周期']
+          }
+        ]
+      },
+      {
+        title: 'Meta 广告大局观',
+        questions: [
+          {
+            id: 'overview-007',
+            q: 'Meta 广告可以覆盖哪些版位？',
+            options: [
+              { text: '只有 Facebook 信息流' },
+              { text: 'Facebook + Instagram 两个平台' },
+              { text: 'Facebook、Instagram、Messenger、Audience Network（第三方 App/网站）', correct: true },
+              { text: '只有 Instagram Stories 和 Reels' }
+            ],
+            explain: '<strong>Meta 的版位生态远不止 Facebook 信息流</strong>，一次投放可覆盖：<br>• <em>Facebook</em>：Feed、Stories、Reels、右列、Marketplace、视频内插播<br>• <em>Instagram</em>：Feed、Stories、Reels、Explore<br>• <em>Messenger</em>：收件箱、Stories<br>• <em>Audience Network</em>：Meta 合作的第三方 App 和网站<br><br>这也是为什么让 Advantage+ Placements 自动管版位通常 CPA 更低——AI 能在这么多版位里找到最优组合，人工挑反而限制了算法空间。',
+            tags: ['基础', '版位']
+          },
+          {
+            id: 'overview-008',
+            q: '哪类业务更适合以 Meta 广告为主要获客渠道？',
+            options: [
+              { text: '搜索意图明确的即时需求（如"附近水管维修"）' },
+              { text: '需要视觉展示、有冲动消费属性、适合社交传播的产品（如时尚、美妆、家居）', correct: true },
+              { text: '纯 B2B 企业软件销售' },
+              { text: '高度标准化的本地线下服务' }
+            ],
+            explain: 'Meta 是<strong>主动展示型平台</strong>——用户没有在找你，但刷到了就可能被打动。因此最适合：<br>• <em>视觉冲击力强</em>（时尚、美妆、家居、食品）<br>• <em>冲动消费属性高</em>（用户看到就想要）<br>• <em>适合口碑传播</em>（可以点赞/分享/评论）<br><br>相反，<em>搜索意图明确的品类（如律师、水管工、SaaS 企业软件）</em>更适合以 Google 搜索广告为主——用户已经知道自己要什么，等被搜到比主动推送更高效。',
+            tags: ['平台选择', '基础']
+          },
+          {
+            id: 'overview-009',
+            q: 'Meta 广告的主要创意格式中，哪种最适合展示多个产品或讲述有顺序的故事？',
+            options: [
+              { text: '单图/单视频广告' },
+              { text: '轮播广告（Carousel）', correct: true },
+              { text: 'Stories 广告' },
+              { text: 'Collection 合集广告' }
+            ],
+            explain: '<strong>主要格式速查</strong>：<br>• <em>单图/单视频</em>：最通用，适合简单清晰的单一卖点<br>• <em>轮播（Carousel）</em>：每张卡片独立图/视频+链接，最多10张——<strong>适合展示多件产品、功能拆解、或分步讲故事</strong><br>• <em>Stories/Reels</em>：全屏竖版，沉浸感强，适合短视频内容<br>• <em>Collection（合集）</em>：封面视频/图片+下方产品网格，点开进入即时体验页，适合电商产品目录<br><br>轮播的另一个优势：每张卡片的点击率和互动数据帮你快速判断哪个卖点最吸引人。',
+            tags: ['广告格式', '创意']
+          },
+          {
+            id: 'overview-010',
+            q: 'Google Ads 和 Meta 广告在完整营销漏斗里的典型分工是什么？',
+            options: [
+              { text: '两个平台功能完全重叠，选一个就够' },
+              { text: 'Google 主要做品牌曝光，Meta 主要做下单转化' },
+              { text: 'Meta 覆盖上层认知/冷流量拉新，Google 搜索广告截获下单意图的热流量', correct: true },
+              { text: 'Google 做再营销，Meta 做关键词投放' }
+            ],
+            explain: '两个平台是<strong>互补关系，不是竞争关系</strong>：<br><br><em>Meta（漏斗上层）</em>：用户还不知道你 → 用素材打动、建立品牌认知、拉冷流量进漏斗<br><em>Google 搜索（漏斗下层）</em>：用户已经被种草、主动搜索 → 精准截获有购买意图的热流量<br><br>经典打法：<strong>Meta 做认知 + Google 做收割</strong>。Meta 投过广告后，品牌词的 Google 搜索量通常会上涨——这是两个平台协同效应的直接证据。<br><br>预算有限时：先把 Google 搜索做好（确保热流量不漏），再加 Meta 往上游扩。',
+            tags: ['平台分工', '漏斗']
+          },
+          {
+            id: 'overview-011',
+            q: 'Meta 广告优化中，哪个因素对 ROAS 的影响最大？',
+            options: [
+              { text: '受众定向精准度（兴趣标签选择）' },
+              { text: '出价策略（Cost Cap / Bid Cap）' },
+              { text: '素材质量（创意能否在前 3 秒抓住注意力）', correct: true },
+              { text: '广告文案长度' }
+            ],
+            explain: '行业共识：<strong>Meta 广告 80% 的效果差异来自素材</strong>，受众和出价的影响合计不超过 20%。<br><br>原因：Meta 用 AI 自动优化受众和出价，人工干预空间越来越小；但<em>素材的创意质量</em>——前 3 秒能否抓住眼球、主张是否清晰、视觉是否有冲击力——是 AI 无法替代的。<br><br>实战结论：<strong>把 70% 的时间花在素材测试上</strong>。每个 Ad Set 同时跑 3–5 条创意，7 天后关掉 CTR 最低的，上新素材补位——持续迭代才是 Meta 的正确节奏。',
+            tags: ['素材', '优化重点']
+          },
+          {
+            id: 'overview-012',
+            q: '关于 Meta 和 Google 的"学习周期"，下面哪个说法正确？',
+            options: [
+              { text: 'Meta 24 小时就可以判断效果，Google 需要 4 周' },
+              { text: 'Meta 广告组需要 7 天内 50 个转化走出学习期；Google 搜索广告 1–2 周可初判', correct: true },
+              { text: '两个平台都是 2 周' },
+              { text: '都不需要等待，实时数据就能判断' }
+            ],
+            explain: '<strong>学习周期对比速查</strong>：<br><br><em>Meta</em>：广告组需在 <strong>7 天内累计 50 个优化事件</strong>才能走出学习阶段；达不到则标为"Learning Limited"，效果持续不稳定。<br><br><em>Google</em>：搜索广告 <strong>1–2 周</strong>可初判；购物 2–3 周；PMax 4–6 周；Demand Gen 需要足足 <strong>8 周</strong>。<br><br>核心原则：<strong>没到周期就动手改 = 浪费学习数据</strong>。在学习期内改预算（Meta 超过 20%）或改受众，会直接重置学习，一切归零。',
+            tags: ['学习周期', '基础']
           }
         ]
       }
@@ -946,6 +1023,18 @@ const MODULES = [
             ],
             explain: '<strong>新账户出价策略路线图</strong>：<br>① 上线初期 → <em>Maximize Conversions</em>（最大化转化，让 Google 学习你的转化模式）<br>② 积累 30+ 月度稳定转化后 → 切换到 <em>Target CPA</em> 或 <em>Target ROAS</em><br><br>Manual CPC 新账户不推荐——缺数据时很难人工判断每个关键词该出多少。Maximize Clicks 只优化点击量，不管转化。',
             tags: ['出价策略', '新手']
+          },
+          {
+            id: 'google-020',
+            q: 'Google Ads 出价策略在哪个层级设置？以下哪项描述最完整准确？',
+            options: [
+              { text: '广告组层级，每个广告组可以独立设置' },
+              { text: '广告系列（Campaign）层级，每条系列可以独立设置不同策略', correct: true },
+              { text: '账户层级，全账户统一一种策略' },
+              { text: '广告层级，每条广告单独设置' }
+            ],
+            explain: '<strong>出价策略在 Campaign（广告系列）层级设置</strong>，同一账户内不同系列可以用不同策略。<br><br>Google Ads 提供的出价策略清单：<br><strong>自动出价</strong><br>· <em>Target CPA</em>：控单次转化成本，适合有稳定转化数据<br>· <em>Target ROAS</em>：控广告回报率，适合转化数据充足且客单价差异大<br>· <em>Maximize Conversions</em>：在预算内跑最多转化量<br>· <em>Maximize Conversion Value</em>：在预算内跑最高转化价值<br>· <em>Maximize Clicks</em>：跑最多点击，适合品牌曝光/测素材<br>· <em>Target Impression Share</em>：控曝光占比，适合品牌词防御<br><strong>手动出价</strong><br>· <em>Manual CPC</em>：完全手动控制每次点击出价<br>· <em>Enhanced CPC (eCPC)</em>：手动 CPC 基础上 Google 小幅自动调整<br><br>注意：<strong>Performance Max 只能选 Maximize Conversions 或 Maximize Conversion Value</strong>，不支持其他策略。',
+            tags: ['出价策略', '账户结构']
           }
         ]
       },
@@ -987,6 +1076,47 @@ const MODULES = [
             ],
             explain: '<strong>CTR 高 = 广告有吸引力；CVR 低 = 落地页出了问题</strong>。<br><br>常见原因：广告承诺"免费试用"但落地页直接要信用卡、页面加载慢（>3 秒跳出率剧增）、落地页内容和广告关键词不匹配、页面缺乏信任要素（评价、案例、保障）。<br><br><em>指标诊断思路：把漏斗拆开看——每一层指标低，问题就在对应那一层。</em>',
             tags: ['指标', 'CTR', 'CVR']
+          }
+        ]
+      },
+      {
+        title: '定向方式',
+        questions: [
+          {
+            id: 'google-021',
+            q: '搜索广告、展示广告、购物广告三种类型，它们「找受众」的逻辑分别是什么？',
+            options: [
+              { text: '三种都用受众画像定向，只是版位不同' },
+              { text: '搜索用关键词（找意图）；展示用受众画像（找人）；购物用商品 Feed（找商品匹配）', correct: true },
+              { text: '搜索和购物都用关键词；展示用受众' },
+              { text: '三种都由 Google 算法自动决定，不需要人工设置' }
+            ],
+            explain: '三种广告的定向逻辑根本不同：<br><br><strong>搜索广告</strong> → 关键词定向，等用户来找你，定向的是「意图」，不是「人」<br><strong>展示广告 / Demand Gen</strong> → 受众定向，主动找人：兴趣受众、再营销、相似受众、版位定向、话题定向<br><strong>购物广告</strong> → 商品 Feed 定向，没有关键词和受众，Google 根据你上传的商品标题/类目/价格自动匹配搜索结果<br><br>记忆口诀：<em>搜索找意图、展示找人、购物找商品匹配</em>',
+            tags: ['定向方式', '广告类型']
+          },
+          {
+            id: 'google-022',
+            q: '展示广告支持多种定向方式，以下哪种是「根据用户平时浏览行为判断兴趣」的定向？',
+            options: [
+              { text: '版位定向（Placement Targeting）' },
+              { text: '话题定向（Topic Targeting）' },
+              { text: '兴趣受众（Audience Targeting）', correct: true },
+              { text: '关键词定向（Keyword Targeting）' }
+            ],
+            explain: '展示广告的定向方式分两大类——<strong>找人</strong>和<strong>找版位</strong>：<br><br><strong>找人（受众类）</strong><br>· <em>兴趣受众</em>：Google 根据用户历史浏览/搜索行为推断兴趣标签<br>· <em>再营销（Retargeting）</em>：来过你网站或 App 的人<br>· <em>相似受众（Similar Audience）</em>：行为特征与你现有客户相似的新人<br><br><strong>找版位（内容类）</strong><br>· <em>版位定向</em>：指定具体出现在哪些网站/YouTube 频道<br>· <em>话题定向</em>：出现在某类内容页面旁边（如所有宠物类文章）<br>· <em>关键词定向</em>：出现在包含特定词的页面旁边（注意：展示广告的关键词定向是匹配页面内容，不是搜索词）',
+            tags: ['定向方式', '展示广告']
+          },
+          {
+            id: 'google-023',
+            q: 'UAC（应用广告）和 Performance Max 的定向方式和其他广告类型最大的区别是？',
+            options: [
+              { text: '只支持关键词定向，其他方式不可用' },
+              { text: '只支持再营销受众，不能拉新' },
+              { text: '不需要设置任何定向，算法自动决定找谁、在哪投', correct: true },
+              { text: '需要同时设置关键词和受众，缺一不可' }
+            ],
+            explain: '<strong>UAC 和 PMax 完全不需要设置定向</strong>——这是它们和其他广告类型最根本的区别。<br><br>你能控制的只有：素材（文字/图片/视频）和出价目标（CPI/CPA/ROAS）。<br>算法自动决定：找谁、在哪个版位展示、什么时间出价多少。<br><br>这也是为什么这两种类型<strong>控制程度最低</strong>：连「找谁」这件事都交出去了。<br><br>代价是：出了问题很难排查——不知道是受众问题、版位问题还是素材问题。<em>素材多样性是唯一可操控的优化杠杆。</em>',
+            tags: ['定向方式', 'UAC', 'PMax']
           }
         ]
       },
@@ -1052,6 +1182,129 @@ const MODULES = [
             ],
             explain: 'Google 隐私政策会<em>隐藏搜索量过低的查询词</em>，报告通常只能看到实际触发流量的 <strong>70–85%</strong>。<br><br>这意味着：<strong>不可能通过否定词完全控制所有流量</strong>。所以必须配合谨慎的匹配类型选择和智能出价策略来兜底。',
             tags: ['搜索字词报告']
+          }
+        ]
+      },
+      {
+        title: '移动端与新型广告',
+        questions: [
+          {
+            id: 'google-024',
+            q: '根据 Google 官方数据，Google.com 上来自移动设备的搜索占比大约是多少？这对广告投放有什么影响？',
+            options: [
+              { text: '约 20%，移动端影响较小，PC 端仍是主力' },
+              { text: '约 35%，两端基本持平' },
+              { text: '超过 50%，落地页和广告文案必须以移动端为优先', correct: true },
+              { text: '约 80%，PC 端已可忽略不计' }
+            ],
+            explain: 'Google 官方数据：<strong>超过 50% 的 Google.com 搜索来自移动设备</strong>。<br><br>对投放的直接影响：<br>• <em>落地页移动端加载速度</em>是 Quality Score 的核心因素——每慢 1 秒，转化率约下降 20%<br>• 广告标题在移动端展示空间更窄，核心卖点要放在前两条标题<br>• 可以设置<strong>设备出价调整（Device Bid Adjustment）</strong>：如果移动端 CPA 更高/更低，单独调整出价系数<br><br>检测工具：Google PageSpeed Insights 的 Mobile 分数，目标 75+。',
+            tags: ['移动端', '基础']
+          },
+          {
+            id: 'google-025',
+            q: 'Google 2025 年推出的 "AI Max for Search campaigns" 和 Performance Max（PMax）最大的区别是什么？',
+            options: [
+              { text: '两者完全相同，只是名字不同' },
+              { text: 'AI Max 只能投视频，PMax 才覆盖搜索' },
+              { text: 'AI Max 在搜索广告基础上叠加 AI 能力（扩展匹配+动态文案），保留关键词控制；PMax 是全渠道黑盒', correct: true },
+              { text: 'AI Max 比 PMax 更便宜，适合小预算' }
+            ],
+            explain: '<strong>AI Max for Search</strong> 是 Google 2025 年在搜索广告上叠加 AI 的新选项，不是替代 PMax：<br>• 基于你的关键词，AI 自动扩展相关搜索意图（比广泛匹配更智能）<br>• 根据用户查询<em>动态生成更相关的广告文案</em><br>• 可根据用户位置和意图自动选择最相关的落地页<br>• <strong>保留搜索广告的关键词控制和透明度</strong><br><br>Google 官方数据：<em>启用 AI Max 的搜索广告平均多带来 <strong>14% 的转化量或转化价值</strong>，同等 CPA/ROAS 水平下</em>（2025年内部数据，非零售业）。<br><br>简单说：AI Max = 搜索广告 + AI 加持；PMax = 全渠道 AI 自动驾驶。',
+            tags: ['AI Max', 'PMax', '新功能']
+          }
+        ]
+      },
+      {
+        title: '广告策略进阶',
+        questions: [
+          {
+            id: 'google-026',
+            q: 'Google Ads 的"广告附加信息"（Ad Assets，原称 Ad Extensions）的核心作用是什么？',
+            options: [
+              { text: '只是美化广告外观，对效果没有实质影响' },
+              { text: '增加广告展示面积和信息量（网站链接/标注/电话/价格等），提升 Ad Rank，让用户在点击前了解更多', correct: true },
+              { text: '只有付费认证账户才能使用' },
+              { text: '会降低 Quality Score，不建议新手使用' }
+            ],
+            explain: 'Google 官方将附加信息列为搜索广告优化的<strong>三大核心策略之一</strong>。常用类型：<br>• <em>Sitelinks（网站链接）</em>：展示多个子页面链接（如"促销页""联系我们"）<br>• <em>Callouts（标注）</em>：突出卖点文字（"免费退换货""7×24客服"）<br>• <em>Call（电话）</em>：直接显示电话号码，移动端可一键拨打<br>• <em>Structured Snippets（结构化摘要）</em>：列举产品/服务类别<br>• <em>Price（价格）</em>：直接展示产品价格<br><br>附加信息<em>免费添加</em>，不会增加广告费，但能大幅提升展示面积和 Ad Rank。Google 建议<strong>尽可能添加所有相关类型</strong>，给算法更多优化素材。',
+            tags: ['Ad Assets', '附加信息', '搜索广告']
+          },
+          {
+            id: 'google-027',
+            q: '同一账户同时跑 Performance Max 和搜索广告系列，用户搜索词与搜索广告里的"精确匹配"关键词完全一致时，哪个广告优先展示？',
+            options: [
+              { text: 'PMax 优先，因为它是全渠道 AI 优化，竞争力更强' },
+              { text: '搜索广告系列的精确匹配关键词优先于 PMax', correct: true },
+              { text: '两个广告同时展示，占据更多版位' },
+              { text: 'Google 随机决定，无法预判' }
+            ],
+            explain: 'Google 官方明确规定了优先级：<strong>搜索广告的精确匹配关键词 > PMax</strong>。<br><br>具体规则：<br>• 用户查询 = 搜索广告精确匹配词 → <em>搜索广告优先，PMax 不参与竞价</em><br>• 用户查询 = 词组/广泛匹配 → PMax 的 Search Themes（搜索主题）与词组/广泛匹配同级竞争<br><br>实战意义：<strong>搜索广告 + PMax 同时跑，不需要担心两者互相抢量</strong>——精确匹配关键词保护了你最重要的搜索词。但广泛匹配词可能与 PMax 有重叠，需要在 PMax 里设置品牌排除（Brand Exclusions）和负关键词来减少内耗。',
+            tags: ['PMax', '搜索广告', '优先级']
+          },
+          {
+            id: 'google-028',
+            q: '投放 Demand Gen 广告，使用 Target CPA 出价时，Google 官方建议日预算设置为 Target CPA 的多少倍？',
+            options: [
+              { text: '3 倍' },
+              { text: '5 倍' },
+              { text: '15 倍', correct: true },
+              { text: '30 倍' }
+            ],
+            explain: 'Google 官方建议：<strong>Demand Gen Target CPA 广告系列，日预算至少设为 Target CPA 的 15 倍</strong>。<br><br>原因：Demand Gen 的受众偏上漏斗（认知/考虑阶段），用户决策周期更长，算法需要<em>更大的预算空间</em>来探索和学习哪类人最终会转化。<br><br>例子：目标 CPA = $50 → 日预算建议至少 $750。预算太低会导致学习期内数据不足，效果长期不稳定。<br><br>对比：搜索广告 Target CPA 建议日预算 3–5x CPA；Demand Gen 需要更多，是因为它针对的是冷受众，转化路径比搜索广告长得多。',
+            tags: ['Demand Gen', '预算', '出价']
+          },
+          {
+            id: 'google-029',
+            q: 'Standard Shopping 和 Performance Max（带商品 Feed）在广告投放版位上最大的区别是什么？',
+            options: [
+              { text: '两者版位完全相同，只是出价方式不同' },
+              { text: 'Standard Shopping 只覆盖 Shopping 标签页和 Google 搜索/图片搜索；PMax 额外覆盖 YouTube、Display、Gmail、Discover、Maps', correct: true },
+              { text: 'PMax 只能投 Shopping 标签页，Standard Shopping 反而覆盖更广' },
+              { text: 'Standard Shopping 支持 YouTube 视频广告，PMax 不支持' }
+            ],
+            explain: '<strong>版位覆盖对比</strong>：<br><br><em>Standard Shopping</em>：Shopping 标签页 + Google 搜索 + Google 图片搜索 + 搜索合作伙伴网站<br><em>Performance Max（带 Feed）</em>：以上全部 + YouTube + Google Display Network + Gmail + Discover + Google Maps<br><br>出价方式对比：<br>• Standard Shopping：Target ROAS / Maximize Clicks / Manual CPC<br>• PMax：Maximize Conversion Value（可选 ROAS 目标）/ Maximize Conversions<br><br>实战建议：<strong>新电商账户先用 Standard Shopping 积累数据</strong>（结构透明、可见度高）；有了稳定 ROAS 数据后再升级到 PMax 扩大覆盖——PMax 会自动在更多渠道上找到额外的转化机会。',
+            tags: ['购物广告', 'PMax', '版位']
+          }
+        ]
+      },
+      {
+        title: '搜索广告启动策略与进阶',
+        questions: [
+          {
+            id: 'google-030',
+            q: '新账户冷启动 Google Search 广告，关键词类型的推荐投放顺序是什么？',
+            options: [
+              { text: '非品牌通用词 → 竞品词 → 品牌词' },
+              { text: '品牌词 → 竞品词 → 非品牌通用词', correct: true },
+              { text: '三类同时开，让 Google 自动分配预算' },
+              { text: '只投非品牌词，流量规模最大' }
+            ],
+            explain: '<strong>冷启动顺序：品牌词 → 竞品词 → 非品牌通用词</strong>（来源：Cursor 付费媒体负责人 Rex Gelb 的实战经验）<br><br>• <em>品牌词</em>：保护用户主动搜索你的流量，CPC 最低、CTR 和转化率最高，ROI 最确定；即使有自然排名也必须投，否则竞品会把你的流量挤走<br>• <em>竞品词</em>：捕获正在主动对比选型的高意图用户，转化率低于品牌词但意图极强；需要准备差异化落地页<br>• <em>非品牌通用词</em>：品类关键词竞争最激烈、CPC 最高，等前两步有稳定转化数据后再扩展<br><br>跳过品牌词直接投通用词 = 把竞品的品牌词流量送给他们、同时烧最贵的钱。',
+            tags: ['搜索广告', '关键词策略', '冷启动']
+          },
+          {
+            id: 'google-031',
+            q: '针对 2000 个 Google Ads 账户的研究发现，PMax 有一个严重的内耗问题，具体数据是什么？',
+            options: [
+              { text: '10% 的 PMax 流量与搜索广告重叠' },
+              { text: '25% 的 PMax 预算花在了品牌词上' },
+              { text: '45% 的 PMax 搜索词同时出现在同账户的搜索广告中，等于在抢自己的量', correct: true },
+              { text: 'PMax 的 80% 预算集中在展示广告版位' }
+            ],
+            explain: '<strong>45% 的 PMax 搜索词内耗</strong>（来源：CCM Marketing 2026，2000 账户分析数据）<br><br>含义：将近一半的 PMax 流量并不是在找真正的增量，而是在截走同账户搜索广告本来能拿到的流量，然后把功劳算在 PMax 头上——ROAS 好看，但零增量。<br><br><strong>解决方法：</strong><br>• 在 PMax 里设置品牌词排除（Brand Exclusions）<br>• 定期检查 PMax 搜索词报告，确认带来的是真正的新词覆盖<br>• 对精确匹配的核心词用搜索广告保护——Google 规则保证精确匹配 > PMax 优先级<br><br>PMax 应该是"扩量器"，不是用来重新收割现有流量的。',
+            tags: ['PMax', '内耗', '数据']
+          },
+          {
+            id: 'google-032',
+            q: 'Google UAC（通用应用广告）有三个演进阶段，正确的顺序和对应出价方式是什么？',
+            options: [
+              { text: '量（Target CPI）→ 质（Target CPA）→ 钱（Target ROAS）', correct: true },
+              { text: '钱（Target ROAS）→ 质（Target CPA）→ 量（Target CPI）' },
+              { text: '量（Maximize Clicks）→ 质（Target CPA）→ 钱（Target ROAS）' },
+              { text: '三阶段出价方式相同，只是预算不同' }
+            ],
+            explain: '<strong>UAC 三阶段：量 → 质 → 钱</strong><br><br>• <em>UAC 1.0（量级期）</em>：Target CPI，最大化安装量，冷启动建立用户基数；这批用户质量参差，不能用 CPI 衡量长期价值<br>• <em>UAC 2.0（质量期）</em>：Target CPA，优化应用内行为（注册/首单），通常需要 50+ 月度转化/算法才有足够信号<br>• <em>UAC 3.0（变现期）</em>：Target ROAS，吸引高 LTV 用户，需要产品成熟、付费数据充足<br><br><strong>核心原则：有足够的上一阶段数据，才能进入下一阶段。</strong>直接跳到 ROAS = 给算法喂垃圾信号，系统不知道该找什么人。',
+            tags: ['UAC', 'App广告', '出价策略']
           }
         ]
       }
@@ -1349,6 +1602,18 @@ const MODULES = [
             tags: ['学习阶段', '常见坑']
           },
           {
+            id: 'meta-027',
+            q: 'Meta 竞价系统内部用什么公式决定每条广告的排序优先级（eCPM）？',
+            options: [
+              { text: 'eCPM = 出价 ÷ 受众规模 × 1000' },
+              { text: 'eCPM = 出价 × 预估 CTR × 预估 CVR × 1000', correct: true },
+              { text: 'eCPM = CPM × 广告组预算 ÷ 总账户预算' },
+              { text: 'eCPM = 出价 + 质量得分，类似 Google Ad Rank' }
+            ],
+            explain: '<strong>Meta eCPM 公式：出价 × 预估 CTR × 预估 CVR × 1000</strong><br><br>这个公式解释了广告投放的底层逻辑：<br>• 广告主按 <em>oCPM（期望转化成本）</em>出价<br>• 系统按 <em>eCPM</em> 给广告排序，谁的分高谁优先拿流量<br>• 最终结果体现为你看到的 <em>CPM</em>（实际千次曝光成本）<br><br><strong>对创意策略的直接启示：</strong><br>• 两个账户出价相同，CTR 更高的拿到更多流量<br>• <em>CVR 是跑量的天花板</em>：CTR 好但 CVR 低 → eCPM 被压低 → 无法放量，比 CTR 差更难救<br>• 不要只追低 CPM，低 CPM 可能是买到了低转化率的流量',
+            tags: ['竞价机制', 'eCPM', '基础']
+          },
+          {
             id: 'meta-022',
             q: 'Event Match Quality（EMQ）是什么，多少分算合格？',
             options: [
@@ -1359,6 +1624,129 @@ const MODULES = [
             ],
             explain: '<strong>EMQ（Event Match Quality）</strong>反映 CAPI 传来的事件数据被 Meta 成功匹配到用户账号的比例。<br><br>评分 0–10：<em>6 分以上为良好，8+ 为优秀</em>。<br><br>提升 EMQ 的方法：传更多用户信息（邮箱、手机号、姓名、地址同时传）、确保数据做了正确的 SHA-256 哈希、使用 Meta 官方 CAPI Gateway 或 Conversions API 集成。<br><br>EMQ 低 = 转化数据传过去但匹配不上用户 = 算法白白浪费信号，优化方向跑偏。',
             tags: ['CAPI', 'EMQ']
+          }
+        ]
+      },
+      {
+        title: '创意评估与算法策略',
+        questions: [
+          {
+            id: 'meta-028',
+            q: '在 Meta Advantage+ 时代，判断一条素材质量高低，最应该优先看哪个指标？',
+            options: [
+              { text: 'CTR（点击率）——点击多代表素材吸引人' },
+              { text: 'CPM（千次曝光成本）——越低越好' },
+              { text: 'Spend Allocation（预算分配比例）——算法给它分配了多少预算', correct: true },
+              { text: 'Frequency（频次）——频次越高代表算法越信任它' }
+            ],
+            explain: '<strong>Spend Allocation = 算法信任票</strong>（来源：CCM Marketing 2026《Meta 广告创意及优化指南》）<br><br>Meta 的 GEM 投放模型会跨多个触点按顺序展示广告，一条素材可能花费高、CPA 看起来贵，但它正在为账户里其他素材的转化"助攻"。<br><br>所以判断素材质量的优先级：<br>① <em>Spend Allocation</em>（算法信任票）→ 这条素材算法愿意把钱砸在上面吗？<br>② <em>CTR</em>（用户兴趣票）→ 用户愿意点吗？<br>③ <em>CVR</em>（实际转化）→ 点进来的人会不会买？<br><br>⚠️ 单条广告 CPA 在 2026 年不再可靠——先看 Spend Allocation，再决定是否换素材。',
+            tags: ['创意评估', 'Spend Allocation', 'Advantage+']
+          },
+          {
+            id: 'meta-029',
+            q: 'Meta 算法评估一条素材时，走的"信号漏斗"从上到下的顺序是什么？',
+            options: [
+              { text: 'CTR → CVR → CPM → ROAS' },
+              { text: 'Stop（停留）→ Understand（理解/CTR）→ Trust（预算分配）→ Business（CVR/转化）', correct: true },
+              { text: 'Reach → Engagement → Conversion → Retention' },
+              { text: 'Impression → Click → Lead → Sale' }
+            ],
+            explain: '<strong>Meta 素材评估四层信号漏斗</strong>（来源：CCM Marketing 2026）：<br><br>① <em>Stop（Thumbstop 率）</em>：用户愿不愿意在这条广告上停下来？<br>② <em>Understand（CTR）</em>：用户是否看懂你在卖什么、对谁有用？<br>③ <em>Trust（Spend Allocation）</em>：系统是否认为这条创意"可扩量且稳定"？<br>④ <em>Business（CVR）</em>：是否真正产生购买/注册/线索？<br><br>实战意义：<br>• 如果停不下来（Stop 低）→ 换素材开头，前3秒太弱<br>• 停下来了但不点（CTR 低）→ 主张不清晰，用户没看懂<br>• 点了不买（CVR 低）→ 落地页问题，不是广告问题<br>• Spend Allocation 低但 CTR 好 → 算法不信任这条，可能是规模上不去',
+            tags: ['创意评估', '算法信号', '素材']
+          },
+          {
+            id: 'meta-030',
+            q: '短视频广告的"3-3-3 法则"指的是什么？',
+            options: [
+              { text: '每个广告组投 3 个视频、每个视频 3 个版本、每 3 周更新一次' },
+              { text: '前3秒抓注意力 → 中3秒传核心信息 → 后3秒给行动号召', correct: true },
+              { text: '一条视频最多跑 3 个受众、3 个版位、3 周时间' },
+              { text: '视频长度控制在 3 分钟、3 分钟、3 分钟三个版本测试' }
+            ],
+            explain: '<strong>3-3-3 法则</strong>是短视频广告结构的黄金模板：<br><br>① <em>前3秒：抓注意力</em> — 不要 logo/品牌 intro，直接进入场景或痛点；静音用户也能理解（字幕必配）；67% 移动端用户在前3秒内划走<br>② <em>中3秒：传核心信息</em> — 清晰说明产品是什么、解决什么问题、对谁有用<br>③ <em>后3秒：行动号召</em> — CTA 要具体（"立即试用""免费领取"），不要写"了解更多"<br><br>搭配使用的三种钩子角度：<br>• 痛点切入："你有没有遇到过 X 问题？"<br>• 结果切入："我用 X 做到了 Y（具体数字）"<br>• 反常识切入："大多数人以为 X，其实 Y"',
+            tags: ['短视频', '创意结构', '素材']
+          },
+          {
+            id: 'meta-031',
+            q: 'Jon Loomer（Meta 广告研究者，2011年至今）认为 Meta 投放失败最根本的原因是什么？',
+            options: [
+              { text: '素材质量差，前3秒没有抓住注意力' },
+              { text: '受众定向太宽，流量不精准' },
+              { text: 'Performance Goal（广告目标）选错——算法是字面执行的，选什么目标找什么人', correct: true },
+              { text: '预算太低，学习阶段无法完成' }
+            ],
+            explain: '<strong>算法是字面执行的（The Algorithm is Literal）</strong> — Jon Loomer 核心原则之一<br><br>"The algorithm will then do all it can to get as many of that action as it can within your budget."<br><br>选"流量" → 系统找<em>爱点广告的人</em>（不一定会买）<br>选"销量/转化" → 系统找<em>有购买行为的人</em><br><br>Jon Loomer 指出，<strong>大多数 Meta 投放失败的根本原因不是素材问题、不是受众问题，而是一开始就选错了 Performance Goal</strong>。你设错了目标，再好的素材、再精准的受众，也在往错误的方向优化。<br><br>2025 年 Meta 的整体方向："Less advertiser control, more algorithm authority."——广告主控制面越来越窄，目标设对变得更关键。',
+            tags: ['广告目标', 'Jon Loomer', '算法']
+          }
+        ]
+      },
+      {
+        title: '归因与追踪',
+        questions: [
+          {
+            id: 'meta-032',
+            q: 'iOS 14.5 后，如果只装了 Meta Pixel 没有 CAPI，转化数据捕获率大约是多少？配置 Server-side（CAPI）后能提升到多少？',
+            options: [
+              { text: '纯 Pixel：约 90%；配置 CAPI 后：接近 100%' },
+              { text: '纯 Pixel：约 40–60%；配置 CAPI 后：提升到 80–90%+', correct: true },
+              { text: '纯 Pixel：约 70%；配置 CAPI 后：提升到 75%' },
+              { text: '两者数据一样，CAPI 只是备份不会提升覆盖率' }
+            ],
+            explain: '<strong>Server-side 追踪覆盖率对比</strong>（来源：Rex Gelb / 追踪与归因实战数据）：<br><br>• 纯 Pixel（浏览器端）：受广告拦截器、Safari ITP、Firefox ETP、iOS ATT 限制，<em>转化捕获率约 40–60%</em><br>• Pixel + CAPI（服务端）：绕过浏览器限制，<em>捕获率提升到 80–90%+</em><br><br>含义：如果你的转化数据只捕捉到了 40%，算法拿到的就是严重失真的信号，优化方向会跑偏。<br><br><strong>必配组合</strong>：Meta CAPI + Advanced Matching（加密用户数据哈希反馈）+ Pixel 同时运行（平台自动去重，覆盖率最全）。<br><br>验证方法：Events Manager → 查看 Event Match Quality，低于 6 分需要排查配置。',
+            tags: ['CAPI', '追踪', 'iOS']
+          }
+        ]
+      },
+      {
+        title: '投放类型与预算规划',
+        questions: [
+          {
+            id: 'meta-023',
+            q: '电商型投放和名单型（Lead Gen）投放，衡量成效的核心指标分别是什么？',
+            options: [
+              { text: '两者都看 CTR（点击率）' },
+              { text: '电商看 ROAS，名单型看 CPL（每条名单成本）+ 后端各层转换率', correct: true },
+              { text: '电商看 CPM，名单型看 CPC' },
+              { text: '两者都看转化量，没有区别' }
+            ],
+            explain: '<strong>两种业务逻辑完全不同：</strong><br><br><em>电商型</em>：用户看广告 → 进网站 → 购买，漏斗短、前端可直接算 ROAS（广告费带来多少销售额）。<br><br><em>名单型</em>（保险/教育/健身/B2B）：用户填表 → 有效名单筛选 → 送件/预约 → 成交，漏斗长、前端 CPL 只是起点。<strong>必须追踪后端每层转换率</strong>才能算出真正的获客成本。<br><br>最常见的坑：名单型只看 CPL 觉得"便宜"，忽略后端 5–15% 的成交率，实际每单成本可能高出 10 倍。',
+            tags: ['电商', '名单型', '基础']
+          },
+          {
+            id: 'meta-024',
+            q: '做名单型广告，$3000 广告费收到 100 条名单，最终成交 15 单。真正的"每单获客成本"是多少？',
+            options: [
+              { text: '$30（广告费 ÷ 名单数）' },
+              { text: '$60（按 50% 有效率估算）' },
+              { text: '$200（$3000 ÷ 15 成交单）', correct: true },
+              { text: '$100' }
+            ],
+            explain: '<strong>名单型的真实获客成本 = 广告费 ÷ 最终成交数</strong>。<br><br>本题：$3000 ÷ 15 单 = <em>每单 $200</em>，而不是 CPL 显示的 $30。<br><br>典型名单漏斗示例（行业均值）：<br>100 条名单 → 60 条有效（电话打得通）→ 30 条送件 → 20 条通过审核 → 15 单成交 = <strong>15% 整体转化率</strong><br><br>所以投 Meta 广告前必须先算清楚：<em>你能接受的最高 CPL = 目标获客成本 × 后端成交率</em>。如果每单能赚 $500，后端成交率 15%，那 CPL 上限是 $75。超过这个数就在亏钱。',
+            tags: ['名单型', '成本计算']
+          },
+          {
+            id: 'meta-025',
+            q: 'Meta 官方建议，广告组的受众规模在什么量级效果最好？',
+            options: [
+              { text: '越精准越好，10 万以内最佳' },
+              { text: '50 万左右，精准与量的平衡' },
+              { text: '200–1000 万（2–10 million），让算法有足够优化空间', correct: true },
+              { text: '越大越好，1 亿以上触达最广' }
+            ],
+            explain: 'Meta 官方推荐：<strong>受众规模 200–1000 万之间</strong>时，算法竞价空间最优、学习效率最高。<br><br>• <em>太小（＜ 50 万）</em>：竞价空间窄 → CPM 暴涨、学习数据不够、容易 Learning Limited<br>• <em>太大（＞ 1 亿）</em>：算法难聚焦 → 大量预算打在低意图人群上<br><br>实战建议：<strong>新账户先用宽受众</strong>（只设地区 + 年龄 + 性别），让 Meta AI 自己找有效人群。兴趣标签越多，受众越小，反而限制了算法。Advantage+ Audience 就是在这个逻辑上进一步放开——让 AI 完全自主寻找。',
+            tags: ['受众规模', '基础']
+          },
+          {
+            id: 'meta-026',
+            q: 'Instagram 广告需要单独在 Instagram 后台设置，和 Facebook 广告是两套系统？',
+            options: [
+              { text: '是的，Instagram 广告在 Instagram App 内单独管理' },
+              { text: '不是，Meta Ads Manager 统一管理，Instagram 只是 Meta 广告系统下的一个版位', correct: true },
+              { text: 'Instagram 广告只能通过 Instagram 合作伙伴投放' },
+              { text: '两个平台完全独立，价格也不同' }
+            ],
+            explain: '<strong>Instagram 广告和 Facebook 广告是同一套系统</strong>——统一通过 Meta Ads Manager 管理。<br><br>在广告组（Ad Set）的"版位"设置里，可以勾选要出现在哪些平台：Facebook Feed、Instagram Feed、Instagram Reels、Messenger、Audience Network 等。<br><br>实战建议：<em>新手先用"Advantage+ Placements"自动版位</em>，让 Meta AI 在所有版位里找最优组合，跑出数据后再手动调整。不要一开始就手动只投某一个版位，会限制算法学习空间。',
+            tags: ['Instagram', '版位', '基础']
           }
         ]
       }
