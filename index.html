@@ -1247,6 +1247,30 @@ const MODULES = [
             ],
             explain: '<strong>AI Max for Search</strong> 是 Google 2025 年在搜索广告上叠加 AI 的新选项，不是替代 PMax：<br>• 基于你的关键词，AI 自动扩展相关搜索意图（比广泛匹配更智能）<br>• 根据用户查询<em>动态生成更相关的广告文案</em><br>• 可根据用户位置和意图自动选择最相关的落地页<br>• <strong>保留搜索广告的关键词控制和透明度</strong><br><br>Google 官方数据：<em>启用 AI Max 的搜索广告平均多带来 <strong>14% 的转化量或转化价值</strong>，同等 CPA/ROAS 水平下</em>（2025年内部数据，非零售业）。<br><br>简单说：AI Max = 搜索广告 + AI 加持；PMax = 全渠道 AI 自动驾驶。',
             tags: ['AI Max', 'PMax', '新功能']
+          },
+          {
+            id: 'google-036',
+            q: 'UAC（通用应用广告）的平均 CTR 为 0.5–2%，而搜索广告 CTR 通常在 5–11%。造成这个巨大差异的主要原因是？',
+            options: [
+              { text: 'UAC 素材质量普遍比搜索广告差，用户不感兴趣' },
+              { text: 'UAC 受众定向太宽泛，触达了大量不相关用户' },
+              { text: 'UAC 是多版位混投，大量流量来自 GDN 和 YouTube，展示类广告 CTR 仅 0.1–0.5%，把整体均值拉低', correct: true },
+              { text: 'UAC 只能在 Google Play 展示，版位单一导致 CTR 低' }
+            ],
+            explain: '<strong>版位组合是 CTR 差异的根本原因</strong>，不是素材问题。<br><br>UAC 同时覆盖四大版位：<br>• <em>GDN（广告联盟）</em>：展示类广告，CTR 约 <strong>0.1–0.5%</strong>，量大但用户被动浏览<br>• <em>YouTube</em>：视频广告，CTR 同样偏低<br>• <em>Google Play</em>：应用商店内展示，CTR 较高<br>• <em>搜索</em>：CTR 5–11%，但占 UAC 总量的比重最小<br><br>GDN + YouTube 占 UAC 流量的大头，拖低了加权平均值。所以当客户问"为什么我的 UAC CTR 只有 1%，是不是素材不行"，正确答案是：<em>版位结构决定的，这是正常值，不能和搜索广告横向比较</em>。',
+            tags: ['UAC', 'CTR', '版位', '指标']
+          },
+          {
+            id: 'google-037',
+            q: 'UAC 投放的流量有相当一部分来自 GDN（Google Display Network）。GDN 是什么？',
+            options: [
+              { text: 'Google 的视频平台，即 YouTube 及其合作频道' },
+              { text: 'Google 的搜索合作伙伴网络，覆盖 Bing 等其他搜索引擎' },
+              { text: 'Google 的购物广告联盟，专门展示电商商品' },
+              { text: 'Google 与超过 200 万个第三方网站和 App 合作的展示广告联盟（广告联盟）', correct: true }
+            ],
+            explain: '<strong>GDN = Google Display Network = 广告联盟</strong>，覆盖 200 万 + 第三方网站、新闻资讯、博客、游戏和应用 App。<br><br>展示类广告（Banner / 图片 / 原生）在用户浏览其他内容时被动出现，<em>不是用户主动搜索触发的</em>。<br><br>GDN 的特点：<br>• <em>CPM 便宜</em>：展示成本远低于搜索广告，量大价低<br>• <em>CTR 低</em>：约 0.1–0.5%，因为没有主动搜索意图<br>• <em>CPI 仍可接受</em>：虽然 CTR 低，但 CPM 极低 + 覆盖量极大，整体安装成本不一定高于搜索<br><br>实战意义：<strong>不要用搜索广告的 CTR 标准来评判 UAC 的 GDN 流量</strong>——这是两种完全不同的流量结构，衡量维度应该是 CPI 和 ROAS，而不是 CTR。',
+            tags: ['UAC', 'GDN', '广告联盟', '版位']
           }
         ]
       },
