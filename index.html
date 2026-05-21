@@ -1182,6 +1182,42 @@ const MODULES = [
             ],
             explain: 'Google 隐私政策会<em>隐藏搜索量过低的查询词</em>，报告通常只能看到实际触发流量的 <strong>70–85%</strong>。<br><br>这意味着：<strong>不可能通过否定词完全控制所有流量</strong>。所以必须配合谨慎的匹配类型选择和智能出价策略来兜底。',
             tags: ['搜索字词报告']
+          },
+          {
+            id: 'google-033',
+            q: '品牌词、核心品类词、差异化词、蹭热点词——哪类关键词的匹配策略应该最"紧"，几乎不用广泛匹配？',
+            options: [
+              { text: '品牌词，防止品牌词被泛化' },
+              { text: '核心品类词，流量最大要控制' },
+              { text: '差异化词（如"防水蓝牙耳机游泳专用"）', correct: true },
+              { text: '蹭热点词，避免无效流量' }
+            ],
+            explain: '<strong>差异化词匹配策略应偏紧，以 Exact + Phrase 为主，Broad 几乎不用。</strong><br><br>原因：差异化词通常是长尾的、带具体属性的，搜索量本身不大，但意图极强、转化率高。如果开 Broad，系统很容易把它泛化到核心品类词的流量池里，差异化的价值就稀释了。<br><br>各类关键词匹配策略对比：<br>• <em>品牌词</em>：Exact + Phrase（自家品牌词竞争少，主要防截流；竞品品牌词用 Phrase 为主）<br>• <em>核心品类词</em>：Exact + Phrase 起步 → 积累 50+ 转化后根据 SQR 逐渐放开 Broad + 强否词<br>• <em>差异化词</em>：Exact + Phrase 为主，Broad 几乎不用，出价可比品类词高 20–40%<br>• <em>蹭热点词</em>：Phrase + Broad 可以，但要单独 campaign + 设预算上限',
+            tags: ['关键词', '匹配类型', '策略']
+          },
+          {
+            id: 'google-034',
+            q: '核心品类词从 Exact + Phrase 起步，想切换到 Broad 配强否词放量，需要满足什么前提？',
+            options: [
+              { text: '账户运行超过 2 周即可' },
+              { text: '账户已积累 50+ 转化、Smart Bidding 有判断依据，且否词词库持续维护', correct: true },
+              { text: 'CPC 低于行业均值时' },
+              { text: '广告质量分达到 7 分以上' }
+            ],
+            explain: '<strong>Broad 真正跑得动需要两个前提：</strong><br><br>① <em>账户已积累足够转化数据</em>——一般 50+ 转化起，Smart Bidding 才有判断依据，否则系统不知道什么用户是目标人群，Broad 就是在乱投<br>② <em>否词词库持续维护</em>——建议每周拉一次搜索词报告，持续添加强否词，否则 Broad 很容易烧钱<br><br>在此之前，老老实实用 Exact + Phrase 控制流量质量，别被"最大化流量"的思路诱惑。',
+            tags: ['关键词', '匹配类型', 'Broad']
+          },
+          {
+            id: 'google-035',
+            q: '账户不稳定时贸然开启蹭热点词 campaign，最严重的系统性后果是什么？',
+            options: [
+              { text: '广告被 Google 暂停审核，需要重新提交' },
+              { text: '蹭热点词的 ROAS 会很低，但不影响其他 campaign' },
+              { text: 'Smart Bidding 模型被噪音数据带偏，即使关掉热点词 campaign，主账户恢复可能需要 2–4 周', correct: true },
+              { text: '日预算超支，会收到 Google 的扣费提醒' }
+            ],
+            explain: '<strong>账户不稳定时开蹭热点词，最致命的后果是系统模型崩盘，且是账户级的连带损伤：</strong><br><br>① <em>学习期被打乱</em>：蹭热点词带来大量低质量点击和低转化流量，系统把这些"噪音数据"当成学习样本，误判目标人群。即使事后关掉，主账户 Smart Bidding 也已被带偏，恢复需 2–4 周，严重的要重建 campaign。<br><br>② <em>预算被虹吸</em>：热点词搜索量大、CPC 高。如果共享预算或 CBO，系统优先把钱投到"看起来有量"的地方，核心品类词和品牌词反而拿不到曝光。<br><br>③ <em>账户健康度全线恶化</em>：CTR 下降、转化率暴跌、CPA 飙升 → Google 降低 Ad Rank 和 Quality Score → 所有广告的 CPC 都被推高。<br><br>④ <em>数据归因被污染</em>：热点词带来的"看热闹"流量进入再营销人群池，后续 retargeting 和 lookalike 的种子人群质量下降。<br><br>正确时机：账户跑 4–6 周、核心 campaign ROAS 稳定在目标值以上、自动出价已过学习期（50+ 转化/周）后，再把蹭热点当锦上添花工具。',
+            tags: ['蹭热点', '账户稳定性', '风险']
           }
         ]
       },
@@ -1747,6 +1783,30 @@ const MODULES = [
             ],
             explain: '<strong>Instagram 广告和 Facebook 广告是同一套系统</strong>——统一通过 Meta Ads Manager 管理。<br><br>在广告组（Ad Set）的"版位"设置里，可以勾选要出现在哪些平台：Facebook Feed、Instagram Feed、Instagram Reels、Messenger、Audience Network 等。<br><br>实战建议：<em>新手先用"Advantage+ Placements"自动版位</em>，让 Meta AI 在所有版位里找最优组合，跑出数据后再手动调整。不要一开始就手动只投某一个版位，会限制算法学习空间。',
             tags: ['Instagram', '版位', '基础']
+          },
+          {
+            id: 'meta-033',
+            q: 'Meta 广告的 CBO（Campaign Budget Optimization）和 ABO（Ad Set Budget Optimization）核心区别是什么？',
+            options: [
+              { text: 'CBO 只能跑再营销，ABO 才能跑冷流量' },
+              { text: 'CBO 预算设在广告系列层，系统动态分配给各广告组；ABO 预算设在广告组层，投手手动控制每组预算', correct: true },
+              { text: 'ABO 需要更多历史数据，CBO 适合新账户' },
+              { text: 'CBO 和 ABO 效果相同，只是管理界面不同' }
+            ],
+            explain: '<strong>核心区别：预算放在哪一层、由谁来分配。</strong><br><br><em>ABO（Ad Set Budget Optimization）</em>：预算在广告组层级，你给每组单独定预算。哪怕 Ad Set A 表现远好于 B 和 C，系统也不会把 B 和 C 的钱挪给 A——投手有完整控制权。<br><br><em>CBO（Campaign Budget Optimization）</em>：预算在广告系列层，Meta 在 campaign 下的所有 ad set 之间动态分配，哪个表现好就给哪个多花钱。<br><br>控制权对比：<br>• ABO：控制权在投手，适合测试期——每个 ad set 都有保障预算，数据公平可比<br>• CBO：控制权在系统，适合放量期——让 AI 把钱往最赚钱的方向推，但表现差的组可能拿不到量<br><br>常见坑：不要在 CBO 下放太多 ad set（超过 5–6 个），预算会严重分配不均，大部分组凑不齐学习期需要的 50 转化/周。',
+            tags: ['CBO', 'ABO', '预算策略']
+          },
+          {
+            id: 'meta-034',
+            q: '以下哪个场景最适合用 ABO 而不是 CBO？',
+            options: [
+              { text: '账户已有成熟数据，要把 3–5 个验证过的 ad set 规模化放量' },
+              { text: '单日预算超过 $500，要最大化效率' },
+              { text: '测试 4 个不同人群定向，需要每个变量都跑出足够数据再决策', correct: true },
+              { text: '跑 retargeting + prospecting 组合，想让系统灵活分配' }
+            ],
+            explain: '<strong>ABO 最适合测试期——需要每个变量都有公平的预算保障。</strong><br><br>CBO 会把钱集中在表现"看起来好"的 ad set，测试中的变量可能数据不足、无法有效评估。ABO 让你给每组独立定预算，确保每个人群/素材/策略都有足够样本再做判断。<br><br>什么时候切 CBO：<br>• 已经通过 ABO 测试锁定了赢家人群和素材<br>• 账户有 50+ 月度转化，Smart Bidding 有足够数据<br>• 目标是规模化放量，而不是再测试新变量<br><br>一个经典打法：<em>ABO 测试期（2–3 周找赢家）→ 切 CBO 放量 → 后期再用 ABO 单独测新素材，验证后并入 CBO</em>。<br><br>⚠️ 不要把冷流量和 retargeting 混在同一个 CBO——retargeting 转化率天然高，会吸走所有预算，prospecting 完全跑不动。',
+            tags: ['CBO', 'ABO', '测试策略']
           }
         ]
       }
